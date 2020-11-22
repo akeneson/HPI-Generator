@@ -33,9 +33,15 @@ const UserSchema = new Schema({
         type: Date,
         required: true
     },
+    
     userType: {
         type: String,
+        required: true,
+        default: "patient"
     },
+    
+    illnessRecords: [String],
+
     password: {
         type: String,
         required: true
