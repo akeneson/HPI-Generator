@@ -44,6 +44,18 @@ const patientRecordSeed = [
     radiation: ["right upper abdomen"],
     severity: 7,
     symptomStart: new Date(Date.now()),
+  },
+  {
+    apptDate: new Date(Date.now()),
+    patientId: "003",
+    symptom: "fracture",
+    assocSymptoms: ["fever", "chills", "nausea", "vomiting", "diarrhea"],
+    palliative: [],
+    provocative: ["eating"],
+    qualityType: ["burning", "sharp"],
+    radiation: ["right upper abdomen"],
+    severity: 7,
+    symptomStart: new Date(Date.now()),
   }
 ];
 
@@ -62,6 +74,7 @@ const userSeed = [
     firsName: "John",
     lastName: "Doe",
     gender: "Male",
+    userType: "patient",
     dob: "1980-01-31",
     password: "1234"
   },
@@ -77,7 +90,7 @@ const userSeed = [
 ];
 
 db.PatientRecord
-  .remove({})
+  .deleteMany({})
   .then(() => db.PatientRecord.collection.insertMany(patientRecordSeed))
   .then(data => {
     console.log(data.result.n + " records inserted!");
@@ -89,7 +102,7 @@ db.PatientRecord
   });
 
 db.User
-  .remove({})
+  .deleteMany({})
   .then(() => db.User.collection.insertMany(userSeed))
   .then(data => {
     console.log(data.result.n + " records inserted!");
