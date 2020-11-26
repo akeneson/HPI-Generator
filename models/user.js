@@ -1,6 +1,6 @@
 const mongoose = require("mongoose"),
     Schema = mongoose.Schema,
-    bcrypt = require("bcrypt"),
+    bcrypt = require("bcryptjs"),
     SALT_WORK_FACTOR = 10;
 
 const validateEmail = function (email) {
@@ -33,14 +33,13 @@ const UserSchema = new Schema({
         type: Date,
         required: true
     },
-
+    
     userType: {
         type: String,
         required: true,
-        enum: ['admin', 'patient', 'physician'],
         default: "patient"
     },
-
+    
     illnessRecords: [String],
 
     password: {
@@ -49,8 +48,8 @@ const UserSchema = new Schema({
     }
 });
 
-UserSchema.pre('save', function (next) {
-    let user = this;
+UserSchema.pre(save, function (next) {
+    const user = this;
 
     // only hash the password if it has been modified (or is new)
     if (!user.isModified('password')) return next();
@@ -73,14 +72,9 @@ UserSchema.pre('save', function (next) {
 });
 
 UserSchema.methods.comparePassword = function (candidatePassword, cb) {
-    bcrypt.compare(candidatePassword, this.password, (err, isMatch) => {
-        if (err)
-            return cb(err);
-        else {
-            if (!isMatch)
-                return cb(null, isMatch);
-            return cb(null, this)
-        }
+    bcrypt.compare(candidatePassword, this.password, function (err, isMatch) {
+        if (err) return cb(err);
+        cb(null, isMatch);
     });
 };
 

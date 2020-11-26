@@ -4,7 +4,6 @@ const Schema = mongoose.Schema;
 const patientRecordSchema = new Schema({
   apptDate: {
     type: Date,
-    default: Date.now
   },
   patientId: {
     type: String,
@@ -14,13 +13,16 @@ const patientRecordSchema = new Schema({
     type: String,
     required: true
   },
-  symptomStart: Date,
-  assocSymptoms: [String],
   palliative: [String],
   provocative: [String],
   qualityType: [String],
   radiation: [String],
   severity: Number,
+  timeDuration: {
+    type: Number,
+    required: true
+  },
+  durationType: String,
   diagnosis: [String],
   status: {
     type: String,
@@ -29,6 +31,6 @@ const patientRecordSchema = new Schema({
   }
 });
 
-const PatientRecord = mongoose.model("Patient Record", patientRecordSchema);
+const PatientRecord = mongoose.model("Illness Record", patientRecordSchema);
 
 module.exports = PatientRecord;
