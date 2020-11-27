@@ -17,96 +17,98 @@ const Home = (props) => {
     "6 Days ago"
     ]
     const Qualities = [
-      "sharp",
-      "burning",
-      "pressure",
-      "knifelike",
-      "sore",
-      "aching",
-      "stabbing"
+      "Sharp",
+      "Burning",
+      "Pressure",
+      "Knifelike",
+      "Sore",
+      "Aching",
+      "Stabbing"
     ]
     const Radiations = [
-      "head",
-      'neck',
-      'arm',
-      'wrist',
-      'hand',
-      'finger',
-      'chest',
-      'upper abdomen',
-      'lower abdomen',
-      'upper back',
-      'lower back',
-      'groin',
-      'legs',
-      'calf',
-      'ankle',
-      'foot',
-      'toes']
-    const AssSymps = ['*fatigue',
-      '*fever',
-     '*chills',
-      'abdominal pain',
-      'nausea',
-      'vomiting',
-      'diarrhea',
-      'constipation',
-      'cough',
-      'sputum production',
-      'headache',
-      'dizziness',
-      'earache',
-      'shortness of breath',
-      'chest pain',
-      'trouble eating',
-      'rash',
-      'bleeding',
-      'bruising',
-      'trouble talking',
-      'trouble swallowing',
-      'sore throat',
-      'joint pain',
-      'trouble walking',
-      'vision changes',
-      'eye discharge',
-      'urinary frequency',
-      'urinary urgency',
-      'painful urination']
+      "Head",
+      'Neck',
+      'Arm',
+      'Wrist',
+      'Hand',
+      'Finger',
+      'Chest',
+      'Upper Abdomen',
+      'Lower Abdomen',
+      'Upper Back',
+      'Lower Back',
+      'Groin',
+      'Legs',
+      'Calf',
+      'Ankle',
+      'Foot',
+      'Toes']
+    const AssSymps = [
+      '*Fatigue',
+      '*Fever',
+     '*Chills',
+      'Abdominal Pain',
+      'Nausea',
+      'Vomiting',
+      'Diarrhea',
+      'Constipation',
+      'Cough',
+      'Phlegm',
+      'Headache',
+      'Dizziness',
+      'Earache',
+      'Shortness of Breath',
+      'Chest Pain',
+      'Trouble Eating',
+      'Rash',
+      'Bleeding',
+      'Bruising',
+      'Trouble Talking',
+      'Trouble Swallowing',
+      'Sore Throat',
+      'Joint Pain',
+      'Trouble Walking',
+      'Vision Changes',
+      'Eye Discharge',
+      'Urinary Frequency',
+      'Urinary Urgency',
+      'Painful Urination']
     const Pallatives = [
         "Rest", "Ice", "Heat", "Bandage", "Elevation", "Ibuprofen", "Tylenol", "Over-the-Counter Medications", "Inhaler", "Nebulizer Treatments", "Prescribed Medications", "Anti-Nausea Medication", "Anti-Dizziness Medication", "Cough Medication", "Antibiotics", "Ear Drops", "Splinting", "Standing", "Sitting", "Walking"
     ]
     const Provocatives = ['movement',
-      'rest',
-      'ice',
-      'heat',
-      'bandage',
-      'elevation',
-      'ibuprofen',
-      'tyleno',
-      'over-the-counter medications',
-      'splinting',
-      'standing',
-      'sitting',
-      'walking',
-      'running',
-      'touching',
-      'pushing',
-      'pulling',
-      'lifting',
-      'working out',
-      'typing',
-      'writing',
-      'cooking',
-      'washing dishes',
-      'doing laundry',
-      'mopping',
-      'mowing the grass',
-      'walking long distances',
-      'sitting for long periods of time']
-    const Qunatities = ['intermittent',
-      'constant',
-      'gradual',
-      'acute onset']
+      'Rest',
+      'Ice',
+      'Heat',
+      'Bandage',
+      'Elevation',
+      'Ibuprofen',
+      'Tylenol',
+      'Over-the-Counter Medications',
+      'Splinting',
+      'Standing',
+      'Sitting',
+      'Walking',
+      'Running',
+      'Touching',
+      'Pushing',
+      'Pulling',
+      'Lifting',
+      'Working Out',
+      'Typing',
+      'Writing',
+      'Cooking',
+      'Washing Dishes',
+      'Doing Laundry',
+      'Mopping',
+      'Mowing the Grass',
+      'Walking Long Distances',
+      'Sitting for Long Periods of Time']
+    const Quantities = [
+      'Intermittent',
+      'Constant',
+      'Gradual',
+      'Acute Onset']
   return (
     <Container>
             <Tab.Container id="left-tabs-example" defaultActiveKey="first">
@@ -120,7 +122,7 @@ const Home = (props) => {
                 <Nav.Link eventKey="second">Duration</Nav.Link>
               </Nav.Item>
               <Nav.Item>
-                <Nav.Link eventKey="third">Qulaity</Nav.Link>
+                <Nav.Link eventKey="third">Quality</Nav.Link>
               </Nav.Item>
               <Nav.Item>
                 <Nav.Link eventKey="fourth">Severity</Nav.Link>
@@ -129,7 +131,7 @@ const Home = (props) => {
                 <Nav.Link eventKey="fifth">Radiation</Nav.Link>
               </Nav.Item>
               <Nav.Item>
-                <Nav.Link eventKey="sixth">Asscociated Symptoms</Nav.Link>
+                <Nav.Link eventKey="sixth">Associated Symptoms</Nav.Link>
               </Nav.Item>
               <Nav.Item>
                 <Nav.Link eventKey="seventh">Pallative</Nav.Link>
@@ -145,53 +147,53 @@ const Home = (props) => {
           <Col sm={9}>
             <Tab.Content>
               <Tab.Pane eventKey="first">
-                <h3>What is your main symptom today? (pick one)</h3>
+                <h3>What is your main symptom today? (Pick one)</h3>
                 {symptoms.map((symptom) =>(
                   <Button  color="success" className="Btn">{symptom}</Button>
                 ))}
               </Tab.Pane>
               <Tab.Pane eventKey="second">
-                <h3>How long.......</h3>
+                <h3>How long have you been experiencing symptoms?</h3>
                   <Duration />
               </Tab.Pane>
               <Tab.Pane eventKey="third">
-                <h3>What Kind</h3>
+                <h3>What is the quality of the symptom(s) you are experiencing?</h3>
                   {Qualities.map((Quality) =>(
                     <Button  color="success" className="Btn">{Quality}</Button>
                   ))}
               </Tab.Pane>
               <Tab.Pane eventKey="fourth">
-                <h3>Pain Level</h3>
+                <h3>Please describe your pain level.</h3>
                   <img src="https://www.prohealth.com/wp-content/uploads/2015/04/pain-scale-859x305.jpg"></img>
                   <PainLevel/>
               </Tab.Pane>
               <Tab.Pane eventKey="fifth">
-                <h3>Radiation</h3>
+                <h3>Where are the symptoms radiating from?</h3>
                   {Radiations.map((Radiation) =>(
                     <Button  color="success" className="Btn">{Radiation}</Button>
                   ))}
               </Tab.Pane>
               <Tab.Pane eventKey="sixth">
-                <h3>Asscociated Symptoms</h3>
+                <h3>Are you experiencing any associated symptoms?</h3>
                   {AssSymps.map((AssSymp) =>(
                     <Button  color="success" className="Btn">{AssSymp}</Button>
                   ))}
               </Tab.Pane>
               <Tab.Pane eventKey="seventh">
-                <h3>Pallative</h3>
+                <h3>Have you tried any of the following to ease your pain/symptoms?</h3>
                   {Pallatives.map((Pallative) =>(
                     <Button  color="success" className="Btn">{Pallative}</Button>
                   ))}
               </Tab.Pane>
               <Tab.Pane eventKey="eigth">
-                <h3>Provocative</h3>
+                <h3>Do any of the following things make your symptoms worse?</h3>
                   {Provocatives.map((Provocative) =>(
                     <Button  color="success" className="Btn">{Provocative}</Button>
                   ))}
               </Tab.Pane>
               <Tab.Pane eventKey="ninth">
-                <h3>Quantity</h3>
-                  {Qunatities.map((Qunatity) =>(
+                <h3>How often do you experience symptoms?</h3>
+                  {Quantities.map((Qunatity) =>(
                     <Button  color="success" className="Btn">{Qunatity}</Button>
                   ))}
               </Tab.Pane>
