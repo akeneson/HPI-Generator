@@ -13,4 +13,8 @@ router
   .put(userController.update)
   .delete(userController.remove);
 
+// router.get("/test", (req,res)=> {
+//   res.send("hello: User test route working")
+// })
+
 module.exports = router;
