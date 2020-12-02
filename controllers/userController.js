@@ -52,5 +52,21 @@ module.exports = {
       .then(dbModel => dbModel.remove())
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
+  },
+  login: async function (req, res) {
+    const { email, password } = req.body;
+    if (!email || !password)
+      return res
+        .status(400)
+        .json({ msg: "Invalid Username or Password" });
+    
+    const user = await db.User.findOne({email: email});
+    if(!user)
+      return res
+        .status(400)
+        .json({ msg: "Email not registered. Please sign up" });
+    db.User
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json({msg: "Password does not match"}));
   }
 };
