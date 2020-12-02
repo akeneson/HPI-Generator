@@ -1,0 +1,13 @@
+.Btn{
+  display: flex;
+  flex-wrap: wrap;
+  margin: 10px;
+ }
+h3{
+  margin: auto;
+  padding-top: 50px;
+  font-family: sans-serif;
+}
+.tabs{
+  padding-top: 50px;
+}
