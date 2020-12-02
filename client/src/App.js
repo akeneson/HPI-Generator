@@ -5,6 +5,7 @@ import logo from "./logo.svg";
 import "./App.css";
 import DurationPage from "./pages/Duration";
 import Navigation from "./components/Navigation";
+import Home from "./pages/Home";
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
         <h1>Hello HPI Generator</h1>
         <p>dang this was hard</p>
         <DurationPage/>
-
+        <Home/>
       </div>
     </Router>
   );
