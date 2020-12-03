@@ -23,13 +23,11 @@ const HPICard = (props) => {
                         <div className="form-group">
                             <p>
                                 Patient is a 44-year old female who reports {location.values ? location.values[0].symptoms : "Error" } pain for 5 days. 
-                                She reports looking down at her computer screen for long periods of time.
-                                She describes her pain as spasms and aching with no radiation. 
-                                She rates her pain a 7/10 and is intermittent. 
-                                Her pain is worse at the end of the day and better with rest, ice, and stretching. 
-                                She denies fever, cough, nausea, or loss of bowel or bladder. She admits to headaches. 
-                                She currently takes ibuprofen for her pain with mild relief. 
-                                Her visit is via telemedicine today due to COVID-19 pandemic precautions.
+                                Patient describes their symptom as {location.values ? location.values[0].Qualities : "Error" } Patient has radiation to their {location.values ? location.values[0].Radiations : "Error" }.
+                                Patient rates their pain as a 9/10. The patient's symptom is timing.
+                                The patient's symptom is worse with {location.values ? location.values[0].Provocatives : "Error" } and better with {location.values ? location.values[0].Pallatives : "Error" }.
+                                The patient admits to {location.values ? location.values[0].AssSymps : "Error" }. 
+                                The patient denies associated symptoms** fever, chills, or fatigue.
                             </p>
                         </div>
                     </div>

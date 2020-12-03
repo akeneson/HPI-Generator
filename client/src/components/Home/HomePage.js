@@ -1,10 +1,9 @@
 import React, { useState, useContext } from "react";
-import { Button, Container, Row, Col, Nav, Tab, Sonnet } from "react-bootstrap";
+import { Button, Container, Row, Col, Nav, Tab } from "react-bootstrap";
 import PainLevel from '../PainLevel/PainLevel';
 import Duration from '../Duration/DurationPage';
 import "./HomePage.css"
 import HPIPage from "../HPI/HPIPage";
-import { render } from "react-dom";
 import InputContext from '../../Context/InputContext'
 import { useHistory } from 'react-router-dom';
 
@@ -54,6 +53,9 @@ const Home = (props) => {
       "Sore",
       "Aching",
       "Stabbing"
+  ]
+    const PainLevel = [
+      1,2,3,4,5,6,7,8,9,10
   ]
     const Radiations = [
       "Head",
@@ -144,10 +146,12 @@ const Home = (props) => {
       'Gradual',
       'Acute Onset'
   ]
+  
     
     const [symptomInput, setSymptomInput] = useState();
     const [qualityInput, setQualityInput] = useState("quality");
     const [radiationInput, setRadiationInput] = useState();
+    const [painInput, setPainInput] = useState();
     const [assSympInput, setAssSympInput] = useState();
     const [pallativeInput, setPallativeInput] = useState();
     const [provocativeInput, setProvocativeInput] = useState();
@@ -159,11 +163,14 @@ const Home = (props) => {
         setSymptomInput( e.target.innerText
         )
       }
-    
+
       if(e.target.name==="Qualities"){
         setQualityInput( e.target.innerText)
       }
       setRadiationInput({
+        [e.target.name]: e.target.innerText
+      });
+      setPainInput({
         [e.target.name]: e.target.innerText
       });
       setAssSympInput({
@@ -184,6 +191,7 @@ const Home = (props) => {
       {symptoms: symptomInput},
       {Qualities:qualityInput},
       {Radiations:radiationInput},
+      {Pains:painInput},
       {AssSymps:assSympInput},
       {Pallatives:pallativeInput},
       {Provocatives:provocativeInput},
@@ -255,8 +263,11 @@ const Home = (props) => {
                 </Tab.Pane>
                 <Tab.Pane eventKey="fourth">
                   <h3>Please describe your pain level.</h3>
-                    <img src="https://www.prohealth.com/wp-content/uploads/2015/04/pain-scale-859x305.jpg"></img>
-                    <PainLevel/>
+                    <img src="https://www.prohealth.com/wp-content/uploads/2015/04/pain-scale-859x305.jpg" alt="pain"></img>
+                    {/* <PainLevel /> */}
+                    {PainLevel.map((pain) =>(
+                      <Button  color="success" className="Btn painBtn" onClick={(e)=>handleInput(e)} name="PainLevel">{pain}</Button>
+                    ))}
                 </Tab.Pane>
                 <Tab.Pane eventKey="fifth">
                   <h3>Where are the symptoms radiating from?</h3>

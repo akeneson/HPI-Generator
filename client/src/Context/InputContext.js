@@ -6,6 +6,7 @@ const InputContext = createContext({
   Durations:"",
   Qualities:"",
   Radiations:"",
+  PainLevel:"",
   AssSymps:"",
   Pallatives:"",
   Provocatives:"",
