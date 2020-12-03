@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import Home from '../Home/HomePage';
 
-import { Button, Container, Row, Col, Nav, Tab, Sonnet } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 
 class HPIPage extends Component {
     constructor(props) {

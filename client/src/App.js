@@ -1,10 +1,12 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import logo from "./logo.svg";
 import "./App.css";
-import DurationPage from "./pages/Duration";
 import Home from "./components/Home/HomePage";
 import Navigation from "./components/Nav/Nav";
+import HomePage from './components/Home/HomePage';
+import FeedPage from './components/Feed';
+import HpiCard from './components/HPI/HPICard';
+import history from './components/history';
 // import Login from './components/Login';
 // import Register from './components/Register';
 import LoginPage from "./components/Login/LoginPage"

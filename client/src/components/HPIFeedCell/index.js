@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
+import { UncontrolledAlert } from 'reactstrap';
 import "./style.css";
 
 const HPIFeedCell = (props) => {
@@ -16,18 +17,29 @@ const HPIFeedCell = (props) => {
         dob: "02/27/1989",
         symptom: "Neck Pain",
         apptDate: "11/20/2020",
-        HPIcontent: "Patient is a 31 year old male who reports neck pain for the past 4 days."
+        HPIcontent: "Patient is a 32 year old male who reports neck pain for the past 4 days."
     },
     {
         name: "Marlon",
         dob: "02/27/1989",
         symptom: "Neck Pain",
         apptDate: "11/20/2020",
-        HPIcontent: "Patient is a 31 year old male who reports neck pain for the past 4 days."
+        HPIcontent: "Patient is a 33 year old male who reports neck pain for the past 4 days."
     }
 
     ]
+    //usestate to copy 
+    const [copySuccess, setCopySuccess] = useState('');
+    const textAreaRef = useRef(null);
 
+    //function to copy
+    function copyToClipboard(e) {
+        textAreaRef.current.select();
+        document.execCommand('copy');
+        e.target.focus();
+        setCopySuccess(<UncontrolledAlert color="success" fade={true}>Copied!</UncontrolledAlert>);
+    };
+    
     return (
         <div className="container">
 
@@ -44,24 +56,21 @@ const HPIFeedCell = (props) => {
                     <div className="card-body">
                         <div className="form-group">
                             <label for="HPItextarea">HPI</label>
-                            <p className="form-control" rows="4">{patient.HPIcontent}
-                            </p>
+                            <textarea className="form-control" rows="4" ref={textAreaRef}>{patient.HPIcontent}
+                            </textarea>
                         </div>
 
                         <div className="d-flex bd-highlight mb-3">
                             <div className="p-2">
-                                <button type="button" className=" btn btn-lg btn-outline-secondary mr-2">
+                                <button type="button" className=" btn btn-lg btn-outline-secondary mr-2" onClick={copyToClipboard}>
                                     <i className="far fa-copy "></i> Copy
-                            </button>
+                            </button>{copySuccess}
                             </div>
                             <div className="p-2">
                                 <button type="button" className="btn btn-lg btn-outline-primary">
                                     <i className="fas fa-file-download"></i> Download PDF
                             </button>
                             </div>
-                            {/* <div className="ml-auto p-2">
-                            <a href="#" className="btn btn-lg btn-success"><i className="far fa-check-circle mr-2"></i>Mark Complete</a>
-                        </div> */}
                         </div>
                     </div>
                 </div>
