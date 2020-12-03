@@ -1,4 +1,6 @@
-const db = require("../models");
+const db = require("../models"),
+  bcrypt = require("bcrypt"),
+  jwt = require("jsonwebtoken") ;
 
 // Defining methods for the userController
 module.exports = {
@@ -17,7 +19,7 @@ module.exports = {
   },
   create: async function (req, res) {
     const { email, password, firstName, lastName, gender, dob, passwordCheck } = req.body;
-    
+
     if (!email || !password || !firstName || !lastName || !gender || !dob)
       return res
         .status(400)
@@ -30,15 +32,15 @@ module.exports = {
       return res
         .status(400)
         .json({ msg: "Password check does not match" });
-    const existingUser = await db.User.findOne({email: email})
+    const existingUser = await db.User.findOne({ email: email })
     if (existingUser)
       return res
-      .status(400)
-      .json({msg: "Email already in use" });
+        .status(400)
+        .json({ msg: "Email already in use" });
     db.User
       .create(req.body)
       .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json({msg: "Must be a valid email address"}));
+      .catch(err => res.status(422).json({ msg: "Must be a valid email address" }));
   },
   update: function (req, res) {
     db.User
@@ -59,14 +61,33 @@ module.exports = {
       return res
         .status(400)
         .json({ msg: "Invalid Username or Password" });
-    
-    const user = await db.User.findOne({email: email});
-    if(!user)
+
+    const user = await db.User.findOne({ email: email });
+    if (!user)
       return res
         .status(400)
         .json({ msg: "Email not registered. Please sign up" });
-    db.User
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json({msg: "Password does not match"}));
+
+    const isMatch = await bcrypt.compare(password, user.password);
+    if (!isMatch){
+      return res
+        .status(400)
+        .json({ msg: "Incorrect password" });
+    }
+
+
+    const token = jwt.sign({ user: user._id}, process.env.JWT_SECRET);
+  //  console.log(token);
+   res.json({
+     token,
+     user: {
+       id: user.id,
+       email: user.email
+     },
+   })
+    // db.User
+    //   .create(req.body)
+    //   .then(dbModel => res.json(dbModel))
+    //   .catch(err => res.status(422).json(err));
   }
 };
