@@ -55,7 +55,7 @@ const Home = (props) => {
       "Stabbing"
   ]
     const PainLevel = [
-      1,2,3,4,5,6,7,8,9,10
+      "0","1","2","3","4","5","6","7","8","9","10"
   ]
     const Radiations = [
       "Head",
@@ -149,6 +149,7 @@ const Home = (props) => {
   
     
     const [symptomInput, setSymptomInput] = useState();
+    const [durationInput, setDurationInput] = useState();
     const [qualityInput, setQualityInput] = useState("quality");
     const [radiationInput, setRadiationInput] = useState();
     const [painInput, setPainInput] = useState();
@@ -167,31 +168,32 @@ const Home = (props) => {
       if(e.target.name==="Qualities"){
         setQualityInput( e.target.innerText)
       }
-      setRadiationInput({
-        [e.target.name]: e.target.innerText
-      });
-      setPainInput({
-        [e.target.name]: e.target.innerText
-      });
-      setAssSympInput({
-        [e.target.name]: e.target.innerText
-      });
-      setPallativeInput({
-        [e.target.name]: e.target.innerText
-      });
-      setProvocativeInput({
-        [e.target.name]: e.target.innerText
-      });
-      setqunatityInput({
-        [e.target.name]: e.target.innerText
-      });
+      if(e.target.name==="PainLevel"){
+        setPainInput( e.target.innerText)
+      }
+      if(e.target.name==="Radiations"){
+        setRadiationInput( e.target.innerText)
+      }
+      if(e.target.name==="AssSymps"){
+        setAssSympInput( e.target.innerText)
+      }
+      if(e.target.name==="Pallatives"){
+        setPallativeInput( e.target.innerText)
+      }
+      if(e.target.name==="Provocatives"){
+        setProvocativeInput( e.target.innerText)
+      }
+      if(e.target.name==="Quantities"){
+        setqunatityInput( e.target.innerText)
+      }
     }
     
     const inputs = [
       {symptoms: symptomInput},
+      {Duration: durationInput},
       {Qualities:qualityInput},
+      {PainLevel:painInput},
       {Radiations:radiationInput},
-      {Pains:painInput},
       {AssSymps:assSympInput},
       {Pallatives:pallativeInput},
       {Provocatives:provocativeInput},
@@ -253,7 +255,7 @@ const Home = (props) => {
                 </Tab.Pane>
                 <Tab.Pane eventKey="second">
                   <h3>How long have you been experiencing symptoms?</h3>
-                    <Duration />
+                    <Duration onChangeHandler={setDurationInput}/>
                 </Tab.Pane>
                 <Tab.Pane eventKey="third">
                   <h3>What is the quality of the symptom(s) you are experiencing?</h3>
@@ -295,8 +297,8 @@ const Home = (props) => {
                 </Tab.Pane>
                 <Tab.Pane eventKey="ninth">
                   <h3>How often do you experience symptoms?</h3>
-                    {Quantities.map((Qunatity) =>(
-                      <Button  color="success" className="Btn" onClick={(e)=>handleInput(e)} name="Qunatities">{Qunatity}</Button>
+                    {Quantities.map((Quantity) =>(
+                      <Button  color="success" className="Btn" onClick={(e)=>handleInput(e)} name="Quantities">{Quantity}</Button>
                     ))}
                 </Tab.Pane>
                 <Tab.Pane eventKey="tenth">
@@ -308,8 +310,6 @@ const Home = (props) => {
         </Tab.Container>
       </Container>
       <Row className="submitBtn">
-        {/* <Button onClick={event =>  window.location.href='/hpi'} values={newUserInput}>Submit</Button> */}
-        {/* <Button onClick={() => history.push('/hpi')}>Submit</Button> */}
         <Button onClick={(e)=>handleSubmit(e)}>Submit</Button>
       </Row>
     </>

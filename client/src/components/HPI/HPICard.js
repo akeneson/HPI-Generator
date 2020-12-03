@@ -22,11 +22,11 @@ const HPICard = (props) => {
                     <div className="card-body">
                         <div className="form-group">
                             <p>
-                                Patient is a 44-year old female who reports {location.values ? location.values[0].symptoms : "Error" } pain for 5 days. 
-                                Patient describes their symptom as {location.values ? location.values[0].Qualities : "Error" } Patient has radiation to their {location.values ? location.values[0].Radiations : "Error" }.
-                                Patient rates their pain as a 9/10. The patient's symptom is timing.
-                                The patient's symptom is worse with {location.values ? location.values[0].Provocatives : "Error" } and better with {location.values ? location.values[0].Pallatives : "Error" }.
-                                The patient admits to {location.values ? location.values[0].AssSymps : "Error" }. 
+                                Patient is a 44-year old female who reports {location.values ? location.values[0].symptoms : "Error" } pain for {location.values ? location.values[1].Duration : "Error" } days. 
+                                Patient describes their symptom as {location.values ? location.values[2].Qualities : "Error" }. Patient has radiation to their {location.values ? location.values[4].Radiations : "Error" }.
+                                Patient rates their pain as a {location.values ? location.values[3].PainLevel : "Error" }/10. The patient's symptom is {location.values ? location.values[8].Quantities : "Error" }.
+                                The patient's symptom is worse with {location.values ? location.values[7].Provocatives : "Error" } and better with {location.values ? location.values[6].Pallatives : "Error" }.
+                                The patient admits to {location.values ? location.values[5].AssSymps : "Error" }. 
                                 The patient denies associated symptoms** fever, chills, or fatigue.
                             </p>
                         </div>
