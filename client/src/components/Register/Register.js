@@ -23,11 +23,11 @@ return(
           <Form.Control type="password" placeholder="Password" />
         </Form.Group>
   
-        <Form.Group controlId="formBasicPasswordTwo">
-          <Form.Label>PasswordTwo</Form.Label>
-          <Form.Control type="password" placeholder="Password" />
+        <Form.Group controlId="ConfirmPassword">
+          <Form.Label>Confirm Password</Form.Label>
+          <Form.Control type="password" placeholder="Confirm Password" />
           <Form.Text className="text-muted">
-            Please re-enter your password.
+            Please re-enter the password.
           </Form.Text>
         </Form.Group>
 
