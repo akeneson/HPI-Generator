@@ -11,3 +11,10 @@ h3{
 .tabs{
   padding-top: 50px;
 }
+.submitBtn{
+  justify-content: center;
+  padding-top: 40px;
+}
+.painBtn{
+  justify-content: center;
+}
