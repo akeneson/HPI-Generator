@@ -1,6 +1,7 @@
 const db = require("../models"),
   bcrypt = require("bcrypt"),
-  jwt = require("jsonwebtoken") ;
+  jwt = require("jsonwebtoken"),
+  auth = require("../middleware/auth");
 
 // Defining methods for the userController
 module.exports = {
@@ -48,13 +49,37 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
-  remove: function (req, res) {
-    db.User
-      .findById({ _id: req.params.id })
-      .then(dbModel => dbModel.remove())
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
+
+  // delete: async function(req, res) {
+  //   const deletedUser = await
+  //     db.User
+  //       .findByIdAndDelete(req.user)
+  //       .json(deletedUser)
+  //       // .findByIdAndDelete({ _id: req.params.id })
+  //       // .then(dbModel => dbModel.remove())
+  //       // .then(dbModel => res.json(dbModel))
+  //       .catch(err => res.status(422).json(err));
+  // },
+  validToken: async function (req, res) {
+    try {
+      const token = req.header('x-auth-token');
+
+      if (!token) return res.json(false);
+
+      const verified = jwt.verify(token, process.env.JWT_SECRET);
+      if (!verified) return res.json(false);
+
+      const user = await db.User.findById(verified.user)
+      if (!user) return res.json(false);
+
+
+      return res.json(true)
+    } catch (err) {
+      res.status(500).json({ error: err.message })
+    }
   },
+
+
   login: async function (req, res) {
     const { email, password } = req.body;
     if (!email || !password)
@@ -69,22 +94,22 @@ module.exports = {
         .json({ msg: "Email not registered. Please sign up" });
 
     const isMatch = await bcrypt.compare(password, user.password);
-    if (!isMatch){
+    if (!isMatch) {
       return res
         .status(400)
         .json({ msg: "Incorrect password" });
     }
 
 
-    const token = jwt.sign({ user: user._id}, process.env.JWT_SECRET);
-  //  console.log(token);
-   res.json({
-     token,
-     user: {
-       id: user.id,
-       email: user.email
-     },
-   })
+    const token = jwt.sign({ user: user._id }, process.env.JWT_SECRET);
+    //  console.log(token);
+    res.json({
+      token,
+      user: {
+        id: user.id,
+        email: user.email
+      },
+    })
     // db.User
     //   .create(req.body)
     //   .then(dbModel => res.json(dbModel))
