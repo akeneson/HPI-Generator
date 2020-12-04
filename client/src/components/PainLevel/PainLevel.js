@@ -34,17 +34,17 @@
 
 // export default PainLevel;
 
-import React from "react";
-import { MDBCarousel, MDBCarouselInner, MDBCarouselItem, MDBContainer, MDBRow, MDBCol, MDBCard, MDBCardImage,
-MDBCardBody, MDBCardTitle, MDBCardText, MDBBtn } from "mdbreact";
+// import React from "react";
+// import { MDBCarousel, MDBCarouselInner, MDBCarouselItem, MDBContainer, MDBRow, MDBCol, MDBCard, MDBCardImage,
+// MDBCardBody, MDBCardTitle, MDBCardText, MDBBtn } from "mdbreact";
 
-const PainLevel = (props) => {
-  return (
-    <MDBContainer>
-      Hello
-    </MDBContainer>
-  );
-}
+// const PainLevel = (props) => {
+//   return (
+//     <MDBContainer>
+//       Hello
+//     </MDBContainer>
+//   );
+// }
 
-export default PainLevel;
+// export default PainLevel;
 

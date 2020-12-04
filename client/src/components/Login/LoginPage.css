@@ -1,0 +1,26 @@
+body{
+    align-items: center;
+    background-image: url('./bg.png');
+    background-size: auto, center;
+    background-repeat: no-repeat;
+    padding:100px;
+}
+.parent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .child {
+    display: inline-block;
+  }
+
+  .Card, .card{
+      align-self: center;
+      margin: auto;
+
+  }
+
+  .Button{
+      padding:50px;
+  }
