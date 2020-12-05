@@ -1,6 +1,6 @@
 body{
     align-items: center;
-    background-image: url('./BlueBg.png');
+    /* background-image: url('./BlueBg.png'); */
     background-size: flex, center;
     background-repeat: no-repeat;
     padding:80px;

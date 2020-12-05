@@ -3,25 +3,27 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 import Home from "./components/Home/HomePage";
 import Navigation from "./components/Navigation/Navigation";
-import HomePage from './components/Home/HomePage';
 import FeedPage from './components/Feed';
+import HpiCard from './components/HPI/HPICard';
 // import history from './components/history';
-// import Login from './components/Login';
-// import Register from './components/Register';
-import LoginPage from "./components/Login/LoginPage"
-import HPICard from "./components/HPI/HPICard";
+
+import Register from './components/Register/Register';
+import Login from "./components/Login/LoginPage"
 
 function App() {
   return (
     <Router>
       <div>
-        <Navigation />
-        {/* <LoginPage /> */}
-        <HomePage />
-        <HPICard />
-        
-        {/* <Route exact path="/" component={Login}/>
-        <Route path="/Register" component={Register}/> */}
+        <Switch>
+          <Route exact path="/" component={Login} />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/register" component={Register} />
+          <Route exact path="/home" component={Home} />
+          <Route exact path="/hpi" component={HpiCard} />
+          {/* <Route exact path="/user" component={Login}/> */}
+        </Switch>
+        {/* <Navigation /> */}
+        {/* <Route path="/Register" component={Register}/> */}
       </div>
     </Router>
   );
