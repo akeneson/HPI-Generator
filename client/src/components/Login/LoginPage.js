@@ -25,7 +25,7 @@ return(
   </Form.Group>
   
   {/* this button should take the user to the patient feed page */}
-  <Button variant="primary" type="submit">
+  <Button variant="primary" type="submit" Button style={{margin: "10px"}}>
     Submit
   </Button>
 
