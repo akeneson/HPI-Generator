@@ -25,11 +25,13 @@ function App() {
         localStorage.setItem('auth-token', "");
         token = ""
       }
-      const tokenRes = await Axios.post('http://localhost:3001/api/users/validToken', null,
+      
+      const tokenRes = await Axios.post('/api/users/validToken', null,
         { headers: { 'x-auth-token': token } }
       );
+      console.log('token response', tokenRes)
       if (tokenRes.data) {
-        const userRes = await Axios.get('http://localhost:3001/api/users/', {
+        const userRes = await Axios.get('/api/users/', {
           headers: { 'x-auth-token': token },
         });
         setUserData({
@@ -44,7 +46,7 @@ function App() {
   return (
     <Router>
       {/* UserContext to provide state if logged in or not */}
-      <UserContext.Provider value={userData, setUserData} >
+      <UserContext.Provider value={{userData, setUserData}} >
         <Navigation />
         <Switch>
           <Route exact path="/" component={Login} />
