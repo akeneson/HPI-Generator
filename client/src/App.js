@@ -13,8 +13,8 @@ import Login from "./components/Login/LoginPage"
 function App() {
   return (
     <Router>
+      <Navigation />
       <div>
-        <Navigation />
         <Switch>
           <Route exact path="/" component={Login} />
           <Route exact path="/login" component={Login} />

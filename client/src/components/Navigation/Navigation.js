@@ -11,7 +11,8 @@ const Navigation = () => {
         <Navbar.Brand href="#home" Text style={{color: "white"}}>Millennial Health Inc.</Navbar.Brand>
         <Nav className="mr-auto">
           <NavLink to="/" Text style={{color: "white"}}>Home </NavLink>
-          <NavLink to="/new" Text style={{color: "white"}} margin-left padding="10px"> New Visit</NavLink>
+          <NavLink to="/new" Text style={{color: "white"}}> New Visit</NavLink>
+          <NavLink to="/new" Text style={{color: "white"}}> About us</NavLink>
         </Nav>
         <Form inline className="time">
           <Time/>

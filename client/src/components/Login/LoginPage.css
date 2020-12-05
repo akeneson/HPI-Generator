@@ -3,7 +3,7 @@ body{
     /* background-image: url('./BlueBg.png'); */
     background-size: flex, center;
     background-repeat: no-repeat;
-    padding:80px;
+    padding:px;
 }
 .parent {
     display: flex;
@@ -18,7 +18,7 @@ body{
   .Card, .card{
       align-self: center;
       margin: auto;
-      padding: 20px;
+      margin-top: 80px;
 
   }
 
