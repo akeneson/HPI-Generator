@@ -19,7 +19,7 @@ export default function LogOptions() {
 
       return (
         <div className="auth-options">
-          {userData.user ? (
+          {userData ? (
             <button onClick={logout}>Log out</button>
           ) : (
             <>
