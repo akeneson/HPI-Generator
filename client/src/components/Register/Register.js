@@ -20,15 +20,25 @@ return(
   
         <Form.Group controlId="formBasicPassword">
           <Form.Label>Password</Form.Label>
-          <Form.Control type="password" placeholder="Password" />
+          <Form.Control type="password" placeholder="Enter Password" />
         </Form.Group>
-  
+    
         <Form.Group controlId="ConfirmPassword">
           <Form.Label>Confirm Password</Form.Label>
           <Form.Control type="password" placeholder="Confirm Password" />
           <Form.Text className="text-muted">
             Please re-enter the password.
           </Form.Text>
+        </Form.Group>
+
+        <Form.Group controlId="formFirstName">
+          <Form.Label>First Name</Form.Label>
+          <Form.Control type="string" placeholder="Enter First Name" />
+        </Form.Group>
+
+        <Form.Group controlId="formLastName">
+          <Form.Label>Last Name</Form.Label>
+          <Form.Control type="string" placeholder="Enter Last Name" />
         </Form.Group>
 
         <Form.Group controlId="formBasicGender">
