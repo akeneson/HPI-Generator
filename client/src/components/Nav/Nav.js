@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink} from "react-router-dom";
 import { Navbar, Nav, Form} from "react-bootstrap";
 import Time from '../CurrTime/CurrTimePage'
-import LogOtions from '../LogOptions/LogOptions'
+import LogOptions from '../LogOptions/LogOptions'
 
 const Navigation = () => {
   return (
@@ -14,7 +14,7 @@ const Navigation = () => {
           <NavLink to="/new">New Visit</NavLink>
         </Nav>
         <Form inline className="time">
-          <LogOtions/>
+          <LogOptions/>
           <Time/>
         </Form>
       </Navbar>
