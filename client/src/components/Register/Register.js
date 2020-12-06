@@ -36,7 +36,7 @@ const RegisterPage = () => {
         user: loginRes.data.user,
       });
       localStorage.setItem("auth-token", loginRes.data.token);
-      history.push("/");
+      history.push("/home");
     } catch (err) {
       err.response.data.msg && setError(err.response.data.msg);
     }
