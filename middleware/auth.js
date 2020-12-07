@@ -23,8 +23,8 @@ const auth = (req, res, next) => {
         }
         // Creating a new value in the req parameter for the user id from token (The payload passed when successfully logged in/registered)
         // to be stored in and used in the next function to get the user information with (Look at Authentication check route)
-        console.log(verified)
-        req.user = verified.id;
+        console.log("auth.js: ", verified.user)
+        req.user = verified.user;
         // Move on to the next function
         next();
     } catch (err) {

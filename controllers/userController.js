@@ -107,7 +107,13 @@ module.exports = {
       token,
       user: {
         id: user.id,
-        email: user.email
+        email: user.email,
+        firstName: user.firstName,
+        lastName: user.lastName,
+        gender: user.gender,
+        dob: user.dob,
+        userType: user.userType,
+        illnessRecords: user.illnessRecords
       },
     })
     // db.User
