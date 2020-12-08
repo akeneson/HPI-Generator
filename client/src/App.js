@@ -8,9 +8,8 @@ import FeedPage from './components/Feed';
 import HpiCard from './components/HPI/HPICard';
 import UserContext from './Context/UserContext'
 // import history from './components/history';
-
 import Register from './components/Register/Register';
-import Login from "./components/Login/LoginPage"
+import Login from "./components/Login/LoginPage";
 
 function App() {
   const [userData, setUserData] = useState({

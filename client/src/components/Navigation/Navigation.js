@@ -1,23 +1,53 @@
 import React from "react";
 import { NavLink} from "react-router-dom";
-import { Navbar, Nav, Form} from "react-bootstrap";
+import { Navbar, Nav, Form, Jumbotron, Container} from "react-bootstrap";
 import Time from '../CurrTime/CurrTimePage'
 import LogOptions from "../LogOptions/LogOptions"
+import bgimage from "./BG.jpg"
+
+const jumbotronStyles = 
+{ 
+    height: '270px',  
+    
+    backgroundImage: `url(${bgimage})`, 
+    backgroundheight: 'cover',
+    backgroundImageDisplay: 'flex',
+ 
+}
+            
+
 
 const Navigation = () => {
   return (
     <>
-      <Navbar bg="primary" variant="light">
-        <Navbar.Brand href="#home" Text style={{color: "white"}}>Millennial Health Inc.</Navbar.Brand>
-        <Nav className="mr-auto">
-          <NavLink to="/" Text style={{color: "white"}}>Home </NavLink>
-          <NavLink to="/new" Text style={{color: "white"}} margin-left padding="10px"> New Visit</NavLink>
-        </Nav>
-        <Form inline className="time">
-          <LogOptions/>
-          <Time/>
-        </Form>
-      </Navbar>
+    
+    <Jumbotron bg-cover style={jumbotronStyles} >
+
+    </Jumbotron>
+    <Navbar bg="primary" expand="lg">
+  <Navbar.Toggle aria-controls="basic-navbar-nav" />
+  <Navbar.Collapse id="basic-navbar-nav">
+    <Nav className="mr-auto" style={{alignSelf: "center"}}>
+          <NavLink to="/" Text style={{color: "white", padding: 30, fontSize: 25, borderBottom: "3px solid white", borderTop: "3px solid white" }}>Home </NavLink>
+          <br></br>
+          <NavLink to="/new" Text style={{color: "white", padding: 30, fontSize: 25, borderBottom: "3px solid white", borderTop: "3px solid white"}}> New Visit</NavLink>
+          <br></br>
+          <NavLink to="/new" Text style={{color: "white", padding: 30, fontSize: 25, borderBottom: "3px solid white", borderTop: "3px solid white"}}> About us</NavLink>
+      
+    </Nav>
+        
+    <LogOptions />
+    <Time/>
+  </Navbar.Collapse>
+</Navbar>
+
+
+      {/* <Navbar bg="primary" variant="light">
+        <Navbar.Brand href="#home" Text style={{color: "white" , fontSize: 50 , fontFamily: "Sacromento" }}>Millennial Health Inc.</Navbar.Brand>
+       
+          
+     
+      </Navbar> */}
     </>
   )
 }
