@@ -23,6 +23,7 @@ export default function LogOptions() {
           user: undefined
         });
         localStorage.setItem("auth-token", "");
+        history.push('/login')
       };
       console.log('USER DATA', userData)
       return (

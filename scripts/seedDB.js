@@ -67,7 +67,7 @@ const userSeed = [
     gender: "Hermaphrodite",
     userType: "admin",
     dob: "2020-11-18",
-    password: "1234"
+    password: "$2b$10$3fi4525qV1oTpCTuh7lX.ucASZ5yl6vysezZCHDmdVIneTuZ9.ssu"
   },
   {
     email: "patient1@email.com",
@@ -76,7 +76,7 @@ const userSeed = [
     gender: "Male",
     userType: "patient",
     dob: "1980-01-31",
-    password: "1234"
+    password: "$2b$10$3fi4525qV1oTpCTuh7lX.ucASZ5yl6vysezZCHDmdVIneTuZ9.ssu"
   },
   {
     email: "doctor1@email.com",
@@ -85,7 +85,7 @@ const userSeed = [
     gender: "Female",
     dob: "1990-12-25",
     userType: "physician",
-    password: "1234"
+    password: "$2b$10$3fi4525qV1oTpCTuh7lX.ucASZ5yl6vysezZCHDmdVIneTuZ9.ssu"
   }
 ];
 
