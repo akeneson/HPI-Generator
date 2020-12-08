@@ -4,7 +4,7 @@ body{
     /* background-image: url('./BlueBg.png'); */
     background-size: flex, center;
     background-repeat: no-repeat;
-    padding:px;
+   
 }
 .parent {
     display: flex;
@@ -16,12 +16,7 @@ body{
     display: inline-block;
   }
 
-  .Card, .card{
-      align-self: center;
-      margin: auto;
-      margin-top: 80px;
 
-  }
 
   .Button{
       padding:50px;
