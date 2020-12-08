@@ -1,28 +1,31 @@
+  [![License](https://img.shields.io/badge/license-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 # HPI-Generator
+## Description
+  This application allows patients to enter the history of their present illness into an application which generates a widely use format of documentation for their medical providers. This will allow for providers to more time during the patient's visit to discuss their treatment plan.
 
-# Badges
+## Table of Contents
+* [Installation](#installation)
+* [Usage](#usage)
+* [License](#license)
+* [Contributing](#contributing)
+* [Authors](#authors)
 
-# Description
-
-image of application
-
-# Usage
-
-# Support
-
-# Contributing
-We are a non-profit group at this time. We appreciate any support in all forms.
-
-# Authors and Acknowledgement
+## Installation
+```
+npm install
+```
+## Usage
+The patient will register as a new patient and login. They will then answer prompted questions regarding their upcoming visit. After submission, the providers will be able to login and see a list of their patient's history of present illness. The providers will be able to copy to clip board, import to pdf, as well as mark as complete to remove from their feed page.
+## License
+MIT License
+## Contributing
+We appreciate your ongoing support.
+## Authors and Acknowledgement
 Amy
 Andrew
 Marlon
 Robin
 Prabin
-
-# License
-
-MIT License
 
 Copyright (c) [2020] [MillennialHealthCareInc.]
 
@@ -43,6 +46,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
-# Project status
-We are currently in our developement phase of the beta version.
