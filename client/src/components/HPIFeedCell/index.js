@@ -1,18 +1,25 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { UncontrolledAlert } from 'reactstrap';
 import "./style.css";
 import API from "../../utils/API";
 
-const HPIFeedCell = (props) => {
+const HPIFeedCell = () => {
 
     const [patientRecords, setPatientRecords] = useState([]);
 
-    API.getPatientRecords()
-    .then(res => {
-        console.log("Patient Records: ", res);
-        setPatientRecords(res);
-    })
-    .catch(err => console.log(err));
+    
+    useEffect(()=> {
+        API.getPatientRecords()
+        .then(res => {
+            console.log("Patient Records: ", res);
+            setPatientRecords(res);
+        })
+        .catch(err => console.log(err));
+
+    }, []);
+
+
+    
 
 
 
