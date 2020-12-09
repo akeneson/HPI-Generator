@@ -25,7 +25,7 @@ export default function LogOptions() {
         localStorage.setItem("auth-token", "");
         history.push('/login')
       };
-      console.log('USER DATA', userData)
+      console.log('USER DATA:', userData)
       return (
         
         <div className="auth-options">

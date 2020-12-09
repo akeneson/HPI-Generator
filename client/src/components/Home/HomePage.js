@@ -12,7 +12,8 @@ import UserContext from '../../Context/UserContext';
 const Home = (props) => {
   const history = useHistory();
   const {userData} = useContext(UserContext);
-
+  
+  //redirects user to login page if not logged in
   useEffect(()=> {
     if(!userData.user) history.push("/login")
   })
