@@ -18,8 +18,7 @@ router.post("/", auth, async (req, res) => {
       
       const newRecord = new PatientRecord ({
         ...req.body,
-        patientId: req.user
-
+        patientId: req.user,
       })
       const savedRecord = await newRecord.save();
       res.json(savedRecord);
