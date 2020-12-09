@@ -10,9 +10,12 @@ const jumbotronStyles =
     height: '270px',  
     
     backgroundImage: `url(${bgimage})`, 
-    backgroundheight: 'cover',
-    backgroundImageDisplay: 'flex',
- 
+    backgroundSize: 'cover',
+    backgroundwidth: '100%',
+    backgroundheight: 'auto',
+    backgroundRepeat: 'no repeat',
+    backgroundPosition: 'center'
+
 }
             
 
