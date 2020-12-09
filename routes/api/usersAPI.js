@@ -34,7 +34,7 @@ router.route("/validToken")
 
 router.get('/', auth, async (req, res) => {
   const user = await db.User.findById(req.user);
-  // console.log('logged user:', user)
+  console.log('logged user:', user)
   res.json({
     displayName: user.firstName +" "+ user.lastName,
     id: user._id,
