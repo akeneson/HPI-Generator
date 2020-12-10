@@ -5,7 +5,7 @@ const router = require("express").Router(),
 
 // Matches with "/api/patientRecords"
 router.route("/")
-  // .get(recordController.findAll)
+  .get(recordController.findAll)
   // .post(recordController.create)
 router.post("/", auth, async (req, res) => {
     try {

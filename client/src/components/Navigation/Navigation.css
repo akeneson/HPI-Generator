@@ -20,9 +20,11 @@ body
 }
 .navbar a{
     color: #6B7378!important;
+
 }
 .navbar a:hover{
     color:#6B7378!important;
+    align-content: center!important;
 }
 
 .author{
