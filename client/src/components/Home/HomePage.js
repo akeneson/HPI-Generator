@@ -74,7 +74,8 @@ const Home = (props) => {
       'Calf',
       'Ankle',
       'Foot',
-      'Toes'
+      'Toes',
+      'N/A'
   ]
     const AssSymps = [
       '*Fatigue',
@@ -150,21 +151,25 @@ const Home = (props) => {
     
     const [symptomInput, setSymptomInput] = useState();
     const [durationInput, setDurationInput] = useState();
+    const [durationDivInput, setdurationDivInput] = useState(false);
     const [qualityInput, setQualityInput] = useState("quality");
-    const [radiationInput, setRadiationInput] = useState();
+    const [qualityDivInput, setqualityDivInput] = useState(true);
+    const [radiationInput, setRadiationInput] = useState([]);
     const [painInput, setPainInput] = useState();
     const [assSympInput, setAssSympInput] = useState();
     const [pallativeInput, setPallativeInput] = useState();
-    const [provocativeInput, setProvocativeInput] = useState();
+    const [provocativeInput, setProvocativeInput] = useState(false);
     const [qunatityInput, setqunatityInput] = useState();
 
+    
     function handleInput(e) {
       //CREATE CONDITION ON THE CLICK LISTENER TO PROPERLY SET THE STATE
+      
+      //setqualityDivInput(qualityDivInput => ({ qualityDivInput: !qualityDivInput }));
       if(e.target.name==="symptoms"){
-        setSymptomInput( e.target.innerText
-        )
+        setdurationDivInput(durationDivInput => ({ durationDivInput: !durationDivInput }));
+        setSymptomInput( e.target.innerText)
       }
-
       if(e.target.name==="Qualities"){
         setQualityInput( e.target.innerText)
       }
@@ -172,19 +177,38 @@ const Home = (props) => {
         setPainInput( e.target.innerText)
       }
       if(e.target.name==="Radiations"){
-        setRadiationInput( e.target.innerText)
+        const radiationSymptom = e.target.innerText;
+        if(!radiationInput.includes(radiationSymptom)) {
+          setRadiationInput([...radiationInput, radiationSymptom]);
+        }
       }
       if(e.target.name==="AssSymps"){
-        setAssSympInput( e.target.innerText)
+        //setAssSympInput( e.target.innerText)
+        const assSympts = e.target.innerText;
+        if(!assSympInput.includes(assSympts)) {
+          setRadiationInput([...assSympInput, assSympts]);
+        }
       }
       if(e.target.name==="Pallatives"){
         setPallativeInput( e.target.innerText)
+        const radiationSymptom = e.target.innerText;
+        if(!radiationInput.includes(radiationSymptom)) {
+          setRadiationInput([...radiationInput, radiationSymptom]);
+        }
       }
       if(e.target.name==="Provocatives"){
         setProvocativeInput( e.target.innerText)
+        const radiationSymptom = e.target.innerText;
+        if(!radiationInput.includes(radiationSymptom)) {
+          setRadiationInput([...radiationInput, radiationSymptom]);
+        }
       }
       if(e.target.name==="Quantities"){
         setqunatityInput( e.target.innerText)
+        const radiationSymptom = e.target.innerText;
+        if(!radiationInput.includes(radiationSymptom)) {
+          setRadiationInput([...radiationInput, radiationSymptom]);
+        }
       }
     }
     
@@ -205,6 +229,10 @@ const Home = (props) => {
     userInputCon = inputs;
     newUserInput=userInputCon;
 
+    
+
+    
+    
   return (
     <>
     {/* <InputProvider value={inputs}> */}
@@ -220,10 +248,10 @@ const Home = (props) => {
                   <Nav.Link eventKey="first">Symptom</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                  <Nav.Link eventKey="second">Duration</Nav.Link>
+                  <Nav.Link eventKey="second" className={qualityDivInput ? "disable" : "enable"}>Duration</Nav.Link>
                 </Nav.Item>
-                <Nav.Item>
-                  <Nav.Link eventKey="third">Quality</Nav.Link>
+                <Nav.Item >
+                  <Nav.Link eventKey="third" >Quality</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
                   <Nav.Link eventKey="fourth">Severity</Nav.Link>
@@ -250,18 +278,24 @@ const Home = (props) => {
                 <Tab.Pane eventKey="first">
                   <h3>What is your main symptom today? (Pick one)</h3>
                   {symptoms.map((symptom) =>(
-                    <Button  color="success" className="Btn" onClick={(e)=>handleInput(e)} name="symptoms">{symptom}</Button>
+                    <Button  color="success" className="Btn" onClick={(e)=>{handleInput(e);  }} name="symptoms">{symptom}</Button>
                   ))}
                 </Tab.Pane>
                 <Tab.Pane eventKey="second">
-                  <h3>How long have you been experiencing symptoms?</h3>
-                    <Duration onChangeHandler={setDurationInput}/>
+                    <a>Please answer previous question</a>
+                    <div>
+                      <h3>How long have you been experiencing symptoms?</h3>
+                        <Duration onChangeHandler={setDurationInput}/>
+                    </div>
                 </Tab.Pane>
-                <Tab.Pane eventKey="third">
-                  <h3>What is the quality of the symptom(s) you are experiencing?</h3>
-                    {Qualities.map((Quality) =>(
-                      <Button  color="success" className="Btn" onClick={(e)=>handleInput(e)} name="Qualities">{Quality}</Button>
-                    ))}
+                <Tab.Pane eventKey="third" >
+                    {/* <div className={qualityDivInput ? "" : "hidden"}> */}
+                    <div>
+                      <h3>What is the quality of the symptom(s) you are experiencing?</h3>
+                        {Qualities.map((Quality) =>(
+                          <Button color="success" className="Btn" onClick={(e)=>handleInput(e)} name="Qualities">{Quality}</Button>
+                        ))}
+                    </div>
                 </Tab.Pane>
                 <Tab.Pane eventKey="fourth">
                   <h3>Please describe your pain level.</h3>
@@ -274,7 +308,7 @@ const Home = (props) => {
                 <Tab.Pane eventKey="fifth">
                   <h3>Where are the symptoms radiating from?</h3>
                     {Radiations.map((Radiation) =>(
-                      <Button  color="success" className="Btn" onClick={(e)=>handleInput(e)} name="Radiations">{Radiation}</Button>
+                      <Button color="success" className="Btn" onClick={(e)=>handleInput(e)} name="Radiations">{Radiation}</Button>
                     ))}
                 </Tab.Pane>
                 <Tab.Pane eventKey="sixth">

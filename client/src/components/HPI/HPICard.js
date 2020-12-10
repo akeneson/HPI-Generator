@@ -10,7 +10,21 @@ const HPICard = (props) => {
     useEffect(() => {
         console.log(location.values); 
      }, [location]);
-     
+    
+     let radiationText = "Error";
+     console.log(location.values && location.values[4].Radiations);
+     if(location.values && location.values[4].Radiations.includes('N/A')) {
+        radiationText = "Patient has no radiation symptoms";
+     } else if(location.values && location.values[4].Radiations) {
+        radiationText = "Patient has radiation to their " + location.values[4].Radiations.join(", ");
+     }
+     let AssSymptsText = "Error";
+     console.log(location.values && location.values[5].AssSymps);
+     if(location.values && location.values[5].AssSymps.includes('N/A')) {
+        radiationText = "Patient has no radiation symptoms";
+     } else if(location.values && location.values[5].AssSymps) {
+        radiationText = "Patient has radiation to their " + location.values[4].AssSymps.join(", ");
+     }
     return (
         <Container>
             <Row>
@@ -23,10 +37,10 @@ const HPICard = (props) => {
                         <div className="form-group">
                             <p>
                                 Patient is a 44-year old female who reports {location.values ? location.values[0].symptoms : "Error" } pain for {location.values ? location.values[1].Duration : "Error" } days. 
-                                Patient describes their symptom as {location.values ? location.values[2].Qualities : "Error" }. Patient has radiation to their {location.values ? location.values[4].Radiations : "Error" }.
+                                Patient describes their symptom as {location.values ? location.values[2].Qualities : "Error" }. {radiationText}.
                                 Patient rates their pain as a {location.values ? location.values[3].PainLevel : "Error" }/10. The patient's symptom is {location.values ? location.values[8].Quantities : "Error" }.
                                 The patient's symptom is worse with {location.values ? location.values[7].Provocatives : "Error" } and better with {location.values ? location.values[6].Pallatives : "Error" }.
-                                The patient admits to {location.values ? location.values[5].AssSymps : "Error" }. 
+                                The patient admits to {AssSymptsText}. 
                                 The patient denies associated symptoms** fever, chills, or fatigue.
                             </p>
                         </div>
