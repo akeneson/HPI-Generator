@@ -3,16 +3,19 @@ import { NavLink} from "react-router-dom";
 import { Navbar, Nav, Form, Jumbotron, Container} from "react-bootstrap";
 import Time from '../CurrTime/CurrTimePage'
 import LogOptions from "../LogOptions/LogOptions"
-import bgimage from "./BG.jpg"
+import bgimage from "./bg.jpg"
+
 
 const jumbotronStyles = 
 { 
-    height: '270px',  
-    
+    height: '320px',  
     backgroundImage: `url(${bgimage})`, 
-    backgroundheight: 'cover',
-    backgroundImageDisplay: 'flex',
- 
+    backgroundSize: 'cover',
+    backgroundwidth: '100%',
+    backgroundheight: 'auto',
+    backgroundRepeat: 'no repeat',
+    backgroundPosition: 'center',
+
 }
             
 
@@ -24,21 +27,24 @@ const Navigation = () => {
     <Jumbotron bg-cover style={jumbotronStyles} >
 
     </Jumbotron>
-    <Navbar bg="primary" expand="lg">
+
+    <Navbar expand="lg" className="mb-5">
+  <Navbar.Brand className="gray d-block d-md-none">Millennial Health Inc.</Navbar.Brand>
   <Navbar.Toggle aria-controls="basic-navbar-nav" />
   <Navbar.Collapse id="basic-navbar-nav">
-    <Nav className="mr-auto" style={{alignSelf: "center"}}>
-          <NavLink to="/" Text style={{color: "white", padding: 30, fontSize: 25, borderBottom: "3px solid white", borderTop: "3px solid white" }}>Home </NavLink>
-          <br></br>
-          <NavLink to="/new" Text style={{color: "white", padding: 30, fontSize: 25, borderBottom: "3px solid white", borderTop: "3px solid white"}}> New Visit</NavLink>
-          <br></br>
-          <NavLink to="/new" Text style={{color: "white", padding: 30, fontSize: 25, borderBottom: "3px solid white", borderTop: "3px solid white"}}> About us</NavLink>
-      
+    <Nav className="mx-auto ">
+      <Nav.Link href="/home"><h4>HOME</h4></Nav.Link>
+      <Nav.Link href="/register"><h4>NEW PATIENT</h4></Nav.Link>
+      <Nav.Link href="/login"><h4>LOGIN</h4></Nav.Link>
+      <Nav.Link href="/about"><h4>ABOUT US</h4></Nav.Link>
+      <LogOptions/>
+      <Time/>
     </Nav>
-        
-    <LogOptions />
-    <Time/>
+    {/* <LogOptions className="mx-auto"/> */}
+    {/* <Time/> */}
   </Navbar.Collapse>
+        
+  
 </Navbar>
 
 

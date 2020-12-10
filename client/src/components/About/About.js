@@ -1,6 +1,6 @@
 import React from 'react';
 import { Row, CardDeck, Card } from "react-bootstrap";
-import './AboutPage.css';
+import './About.css';
 
 const AboutPage = () => {
 
