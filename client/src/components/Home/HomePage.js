@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Button, Container, Row, Col, Nav, Tab } from "react-bootstrap";
 import PainLevel from '../PainLevel/PainLevel';
 import Duration from '../Duration/DurationPage';
@@ -6,10 +6,18 @@ import "./HomePage.css"
 import HPIPage from "../HPI/HPIPage";
 import InputContext from '../../Context/InputContext'
 import { useHistory } from 'react-router-dom';
+import UserContext from '../../Context/UserContext';
 
 
 const Home = (props) => {
   const history = useHistory();
+  const {userData} = useContext(UserContext);
+  
+  //redirects user to login page if not logged in
+  useEffect(()=> {
+    if(!userData.user) history.push("/login")
+  })
+
   const handleSubmit = event => {
     history.push({
         pathname: '/hpi',
@@ -17,24 +25,36 @@ const Home = (props) => {
     });
   };
   const symptoms = [
-    "Head",
-    "Eyes",
-    "Ears",
-    "Nose",
-    "COVID",
-    "Neck",
-    "Back",
-    "Arms",
-    "Wrist",
-    "Hand",
-    "Legs",
-    "Ankle",
-    "Foot",
-    "Chest",
-    "Cough",
-    "Shortness of Breath",
-    "Abdomen",
-    "Urinary"
+    "abdominal pain",
+    "arm pain",
+    "ankle pain",
+    "back pain",
+    "chest pain",
+    "confusion",
+    "congestions",
+    "cough",
+    "COVID symptoms",
+    "COVID exposure",
+    "diarrhea",
+    "eye pain",
+    "eye discharge",
+    "eye swelling",
+    "ear pain",
+    "ear discharge",
+    "ear swelling",
+    "finger pain",
+    "flu-like symptoms",
+    "foot pain",
+    "hand pain",
+    "headache",
+    "leg pain",
+    "neck pain",
+    "nausea",
+    "runny nose",
+    "shortness of breath",
+    "urinary",
+    "vomiting",
+    "wrist pain",
   ]
   const Durations = [
     "Today",
@@ -106,10 +126,11 @@ const Home = (props) => {
       'Eye Discharge',
       'Urinary Frequency',
       'Urinary Urgency',
-      'Painful Urination'
+      'Painful Urination',
+      'N/A'
   ]
     const Pallatives = [
-        "Rest", "Ice", "Heat", "Bandage", "Elevation", "Ibuprofen", "Tylenol", "Over-the-Counter Medications", "Inhaler", "Nebulizer Treatments", "Prescribed Medications", "Anti-Nausea Medication", "Anti-Dizziness Medication", "Cough Medication", "Antibiotics", "Ear Drops", "Splinting", "Standing", "Sitting", "Walking"
+        "Rest", "Ice", "Heat", "Bandage", "Elevation", "Ibuprofen", "Tylenol", "Over-the-Counter Medications", "Inhaler", "Nebulizer Treatments", "Prescribed Medications", "Anti-Nausea Medication", "Anti-Dizziness Medication", "Cough Medication", "Antibiotics", "Ear Drops", "Splinting", "Standing", "Sitting", "Walking", "N/A"
   ]
     const Provocatives = [
       'movement',
@@ -139,13 +160,15 @@ const Home = (props) => {
       'Mopping',
       'Mowing the Grass',
       'Walking Long Distances',
-      'Sitting for Long Periods of Time'
+      'Sitting for Long Periods of Time',
+      'N/A'
   ]
     const Quantities = [
       'Intermittent',
       'Constant',
       'Gradual',
-      'Acute Onset'
+      'Acute Onset',
+      'N/A'
   ]
   
     
@@ -156,10 +179,10 @@ const Home = (props) => {
     const [qualityDivInput, setqualityDivInput] = useState(true);
     const [radiationInput, setRadiationInput] = useState([]);
     const [painInput, setPainInput] = useState();
-    const [assSympInput, setAssSympInput] = useState();
-    const [pallativeInput, setPallativeInput] = useState();
-    const [provocativeInput, setProvocativeInput] = useState(false);
-    const [qunatityInput, setqunatityInput] = useState();
+    const [assSympInput, setAssSympInput] = useState([]);
+    const [pallativeInput, setPallativeInput] = useState([]);
+    const [provocativeInput, setProvocativeInput] = useState([]);
+    const [qunatityInput, setqunatityInput] = useState([]);
 
     
     function handleInput(e) {
@@ -184,31 +207,33 @@ const Home = (props) => {
       }
       if(e.target.name==="AssSymps"){
         //setAssSympInput( e.target.innerText)
-        const assSympts = e.target.innerText;
-        if(!assSympInput.includes(assSympts)) {
-          setRadiationInput([...assSympInput, assSympts]);
+        const assSymptom = e.target.innerText;
+        if(!assSympInput.includes(assSymptom)) {
+          setAssSympInput([...assSympInput, assSymptom]);
         }
       }
       if(e.target.name==="Pallatives"){
-        setPallativeInput( e.target.innerText)
-        const radiationSymptom = e.target.innerText;
-        if(!radiationInput.includes(radiationSymptom)) {
-          setRadiationInput([...radiationInput, radiationSymptom]);
+        //setPallativeInput( e.target.innerText)
+        const pallativesSymptom = e.target.innerText;
+        if(!pallativeInput.includes(pallativesSymptom)) {
+          setPallativeInput([...pallativeInput, pallativesSymptom]);
         }
       }
       if(e.target.name==="Provocatives"){
-        setProvocativeInput( e.target.innerText)
-        const radiationSymptom = e.target.innerText;
-        if(!radiationInput.includes(radiationSymptom)) {
-          setRadiationInput([...radiationInput, radiationSymptom]);
+        //setProvocativeInput( e.target.innerText)
+        const provocativesSymptom = e.target.innerText;
+        if(!provocativeInput.includes(provocativesSymptom)) {
+          setProvocativeInput([...provocativeInput, provocativesSymptom]);
         }
+        
       }
       if(e.target.name==="Quantities"){
-        setqunatityInput( e.target.innerText)
-        const radiationSymptom = e.target.innerText;
-        if(!radiationInput.includes(radiationSymptom)) {
-          setRadiationInput([...radiationInput, radiationSymptom]);
+        //setqunatityInput( e.target.innerText)
+        const quantitiesSymptom = e.target.innerText;
+        if(!qunatityInput.includes(quantitiesSymptom)) {
+          setqunatityInput([...qunatityInput, quantitiesSymptom]);
         }
+        
       }
     }
     
@@ -236,9 +261,9 @@ const Home = (props) => {
   return (
     <>
     {/* <InputProvider value={inputs}> */}
-    {console.log("SYMP", symptomInput)}
+    {/* {console.log("SYMP", symptomInput)}
     {console.log("INPUTS", inputs)}
-    {console.log("context works!", newUserInput)}
+    {console.log("context works!", newUserInput)} */}
       <Container>
             <Tab.Container id="left-tabs-example" defaultActiveKey="first">
           <Row>

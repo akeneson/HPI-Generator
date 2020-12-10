@@ -21,10 +21,32 @@ const HPICard = (props) => {
      let AssSymptsText = "Error";
      console.log(location.values && location.values[5].AssSymps);
      if(location.values && location.values[5].AssSymps.includes('N/A')) {
-        radiationText = "Patient has no radiation symptoms";
+        AssSymptsText = "Patient has no associated symptoms";
      } else if(location.values && location.values[5].AssSymps) {
-        radiationText = "Patient has radiation to their " + location.values[4].AssSymps.join(", ");
+        AssSymptsText = "The patient admits to associated symptoms " + location.values[5].AssSymps.join(", ");
      }
+     let pallativesText = "Error";
+     console.log(location.values && location.values[6].Pallatives);
+     if(location.values && location.values[6].Pallatives.includes('N/A')) {
+        pallativesText = "Patient has no pallatives symptoms";
+     } else if(location.values && location.values[6].Pallatives) {
+        pallativesText = "and better with " + location.values[6].Pallatives.join(", ");
+     }
+     let provocativesText = "Error";
+     console.log(location.values && location.values[7].Provocatives);
+     if(location.values && location.values[7].Provocatives.includes('N/A')) {
+        provocativesText = "Patient has no provocatives symptoms";
+     } else if(location.values && location.values[7].Provocatives) {
+        provocativesText = "The patient's symptom is worse with " + location.values[7].Provocatives.join(", ");
+     }
+     let quantitiesText = "Error";
+     console.log(location.values && location.values[8].Quantities);
+     if(location.values && location.values[8].Quantities.includes('N/A')) {
+        quantitiesText = "Patient has no quantities symptoms";
+     } else if(location.values && location.values[8].Quantities) {
+        quantitiesText = "The patient's symptom is " + location.values[8].Quantities.join(", ");
+     }
+     
     return (
         <Container>
             <Row>
@@ -38,10 +60,8 @@ const HPICard = (props) => {
                             <p>
                                 Patient is a 44-year old female who reports {location.values ? location.values[0].symptoms : "Error" } pain for {location.values ? location.values[1].Duration : "Error" } days. 
                                 Patient describes their symptom as {location.values ? location.values[2].Qualities : "Error" }. {radiationText}.
-                                Patient rates their pain as a {location.values ? location.values[3].PainLevel : "Error" }/10. The patient's symptom is {location.values ? location.values[8].Quantities : "Error" }.
-                                The patient's symptom is worse with {location.values ? location.values[7].Provocatives : "Error" } and better with {location.values ? location.values[6].Pallatives : "Error" }.
-                                The patient admits to {AssSymptsText}. 
-                                The patient denies associated symptoms** fever, chills, or fatigue.
+                                Patient rates their pain as a {location.values ? location.values[3].PainLevel : "Error" }/10. {quantitiesText}.
+                                {provocativesText} {pallativesText}. {AssSymptsText}. 
                             </p>
                         </div>
                     </div>
