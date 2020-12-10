@@ -28,7 +28,7 @@ export default function LogOptions() {
         localStorage.setItem("auth-token", "");
         history.push('/login')
       };
-      console.log('USER DATA', userData)
+      console.log('USER DATA:', userData)
       return (
         
         <Container className="auth-options mx-3">

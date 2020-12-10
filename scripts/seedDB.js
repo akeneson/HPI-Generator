@@ -62,7 +62,7 @@ const patientRecordSeed = [
 const userSeed = [
   {
     email: "admin@email.com",
-    firsName: "Admin",
+    firstName: "Admin",
     lastName: "User",
     gender: "Hermaphrodite",
     userType: "admin",
@@ -71,7 +71,7 @@ const userSeed = [
   },
   {
     email: "patient1@email.com",
-    firsName: "John",
+    firstName: "John",
     lastName: "Doe",
     gender: "Male",
     userType: "patient",
@@ -80,7 +80,7 @@ const userSeed = [
   },
   {
     email: "doctor1@email.com",
-    firsName: "Amy",
+    firstName: "Amy",
     lastName: "Nguyen",
     gender: "Female",
     dob: "1990-12-25",

@@ -30,6 +30,5 @@ const patientRecordSchema = new Schema({
   }
 });
 
-const PatientRecord = mongoose.model("Patient Record", patientRecordSchema);
+module.exports = mongoose.model("PatientRecord", patientRecordSchema);
 
-module.exports = PatientRecord;

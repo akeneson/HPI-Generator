@@ -59,15 +59,13 @@ return(
     <Form.Label htmlFor="login-password">Password</Form.Label>
     <Form.Control type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)}/>
   </Form.Group>
-  <Form.Group controlId="formBasicCheckbox">
-    <Form.Check type="checkbox" label="Check me out" />
-  </Form.Group>
+  
   <Button variant="primary" type="submit" value="Log in">
     Submit
   </Button>
 </Form>
     </Card.Text>
-    <Button className="btn-pink">Go somewhere</Button>
+    
   </Card.Body>
 </Card>
 </Row>

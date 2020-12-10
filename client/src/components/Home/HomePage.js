@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Button, Container, Row, Col, Nav, Tab } from "react-bootstrap";
 import PainLevel from '../PainLevel/PainLevel';
 import Duration from '../Duration/DurationPage';
@@ -6,10 +6,18 @@ import "./HomePage.css"
 import HPIPage from "../HPI/HPIPage";
 import InputContext from '../../Context/InputContext'
 import { useHistory } from 'react-router-dom';
+import UserContext from '../../Context/UserContext';
 
 
 const Home = (props) => {
   const history = useHistory();
+  const {userData} = useContext(UserContext);
+  
+  //redirects user to login page if not logged in
+  useEffect(()=> {
+    if(!userData.user) history.push("/login")
+  })
+
   const handleSubmit = event => {
     history.push({
         pathname: '/hpi',
@@ -220,9 +228,9 @@ const Home = (props) => {
   return (
     <>
     {/* <InputProvider value={inputs}> */}
-    {console.log("SYMP", symptomInput)}
+    {/* {console.log("SYMP", symptomInput)}
     {console.log("INPUTS", inputs)}
-    {console.log("context works!", newUserInput)}
+    {console.log("context works!", newUserInput)} */}
       <Container>
             <Tab.Container id="left-tabs-example" defaultActiveKey="first">
           <Row>

@@ -53,6 +53,7 @@ function App() {
           <Route path="/register" component={Register} />
           <Route path="/home" component={Home} />
           <Route path="/hpi" component={HpiCard} />
+          <Route path="/feed" component={FeedPage} />
           {/* <Route exact path="/user" component={Login}/> */}
         </Switch>
         {/* <Navigation /> */}
