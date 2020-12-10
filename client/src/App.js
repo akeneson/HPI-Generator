@@ -40,7 +40,7 @@ function App() {
         });
         setUserData({
           token,
-          user: userRes.data,
+          user: [userRes.data],
         })
       }
     }
