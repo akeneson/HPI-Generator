@@ -39,30 +39,30 @@ return(
   <Row className="d-flex justify-content-center px-5">
 <Card className="col-md-4 bg-white">
   <Card.Header className="bg-pink">
-    <Card.Title>Log In</Card.Title>
+    <Card.Title><h4>Log In</h4></Card.Title>
   
   </Card.Header>
   <Card.Body>
-    <Card.Text><Form className="form">
+    <Card.Text><Form className="form" onSubmit={submit}>
   <Form.Group controlId="formBasicEmail">
   {error && (
     <ErrorNotice message={error} clearError={() => setError(undefined)} />
   )}
-    <Form.Label>Email address</Form.Label>
-    <Form.Control type="email" placeholder="Enter email" />
+    <Form.Label htmlFor="login-email">Email address</Form.Label>
+    <Form.Control type="email" placeholder="Enter email" onChange={(e) => setEmail(e.target.value)}/>
     <Form.Text className="text-muted">
       We'll never share your email with anyone else.
     </Form.Text>
   </Form.Group>
 
   <Form.Group controlId="formBasicPassword">
-    <Form.Label>Password</Form.Label>
-    <Form.Control type="password" placeholder="Password" />
+    <Form.Label htmlFor="login-password">Password</Form.Label>
+    <Form.Control type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)}/>
   </Form.Group>
   <Form.Group controlId="formBasicCheckbox">
     <Form.Check type="checkbox" label="Check me out" />
   </Form.Group>
-  <Button variant="primary" type="submit">
+  <Button variant="primary" type="submit" value="Log in">
     Submit
   </Button>
 </Form>
@@ -77,6 +77,9 @@ return(
 //     <ErrorNotice message={error} clearError={() => setError(undefined)} />
 //   )}
 //   <form className="form" onSubmit={submit}>
+
+
+
 //     <label htmlFor="login-email">Email</label>
 //     <input
 //       id="login-email"
