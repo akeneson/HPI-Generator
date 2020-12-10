@@ -33,10 +33,10 @@ const Navigation = () => {
   <Navbar.Toggle aria-controls="basic-navbar-nav" />
   <Navbar.Collapse id="basic-navbar-nav">
     <Nav className="mx-auto ">
-      <Nav.Link href="#home"><h4>HOME</h4></Nav.Link>
-      <Nav.Link href="#register"><h4>NEW PATIENT</h4></Nav.Link>
-      <Nav.Link href="#login"><h4>LOGIN</h4></Nav.Link>
-      <Nav.Link href="#about"><h4>ABOUT US</h4></Nav.Link>
+      <Nav.Link href="/home"><h4>HOME</h4></Nav.Link>
+      <Nav.Link href="/register"><h4>NEW PATIENT</h4></Nav.Link>
+      <Nav.Link href="/login"><h4>LOGIN</h4></Nav.Link>
+      <Nav.Link href="/about"><h4>ABOUT US</h4></Nav.Link>
       <LogOptions/>
       <Time/>
     </Nav>
