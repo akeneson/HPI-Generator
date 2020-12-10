@@ -3,7 +3,7 @@ import { NavLink} from "react-router-dom";
 import { Navbar, Nav, Form, Jumbotron, Container} from "react-bootstrap";
 import Time from '../CurrTime/CurrTimePage'
 import LogOptions from "../LogOptions/LogOptions"
-import bgimage from "./BG.jpg"
+import bgimage from "./bg.jpg"
 
 
 const jumbotronStyles = 
