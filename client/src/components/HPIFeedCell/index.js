@@ -17,35 +17,7 @@ const HPIFeedCell = () => {
         .catch(err => console.log(err));
 
     }, []);
-
-
     
-
-
-
-
-    // const patientArray = [{
-    //     name: "Andrew",
-    //     dob: "02/27/1989",
-    //     symptom: "Neck Pain",
-    //     apptDate: "11/20/2020",
-    //     HPIcontent: "Patient is a 31 year old male who reports neck pain for the past 4 days."
-    // },
-    // {
-    //     name: "Prabin",
-    //     dob: "02/27/1989",
-    //     symptom: "Neck Pain",
-    //     apptDate: "11/20/2020",
-    //     HPIcontent: "Patient is a 32 year old male who reports neck pain for the past 4 days."
-    // },
-    // {
-    //     name: "Marlon",
-    //     dob: "02/27/1989",
-    //     symptom: "Neck Pain",
-    //     apptDate: "11/20/2020",
-    //     HPIcontent: "Patient is a 33 year old male who reports neck pain for the past 4 days."
-    // }
-    // ]
     //usestate to copy 
 
     const [copySuccess, setCopySuccess] = useState('');
