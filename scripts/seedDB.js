@@ -10,6 +10,8 @@ mongoose.connect(
 
 const patientRecordSeed = [
   {
+    patientName: "Amy K",
+    dob: "2020-11-18",
     apptDate: new Date(Date.now()),
     patientId: "001",
     symptom: "Trauma",
@@ -20,8 +22,11 @@ const patientRecordSeed = [
     radiation: ["lower back", "legs"],
     severity: 7,
     symptomStart: new Date(Date.now()),
+    hpi: "Patient reports back pain after coding bootcamp"
   },
   {
+    patientName: "Marlon P",
+    dob: "2020-11-18",
     apptDate: new Date(Date.now()),
     patientId: "002",
     symptom: "Flu/COVID symptoms",
@@ -32,8 +37,11 @@ const patientRecordSeed = [
     radiation: ["chest"],
     severity: 7,
     symptomStart: new Date(Date.now()),
+    hpi: "Patient reports back pain after coding bootcamp"
   },
   {
+    patientName: "Robin R",
+    dob: "2020-11-18",
     apptDate: new Date(Date.now()),
     patientId: "003",
     symptom: "abdomen",
@@ -44,8 +52,11 @@ const patientRecordSeed = [
     radiation: ["right upper abdomen"],
     severity: 7,
     symptomStart: new Date(Date.now()),
+    hpi: "Patient reports back pain after coding bootcamp"
   },
   {
+    patientName: "Prabin",
+    dob: "2020-11-18",
     apptDate: new Date(Date.now()),
     patientId: "003",
     symptom: "fracture",
@@ -56,6 +67,7 @@ const patientRecordSeed = [
     radiation: ["right upper abdomen"],
     severity: 7,
     symptomStart: new Date(Date.now()),
+    hpi: "Patient reports back pain after coding bootcamp"
   }
 ];
 
