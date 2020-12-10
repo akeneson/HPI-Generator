@@ -18,13 +18,22 @@ body
     border-bottom: 1px solid #6B7378;
     align-content: center!important;
 }
+.navbar-collapse{
+    flex-basis: none!important;
+    align-content: center;
+    width: 500px!important;
+    display: inline!important;
+    width: 500px!important;
+}
 .navbar a{
     color: #6B7378!important;
+    padding:10px
 
 }
 .navbar a:hover{
     color:#6B7378!important;
-    align-content: center!important;
+    align-content: center;
+    padding: 10px;
 }
 
 .author{

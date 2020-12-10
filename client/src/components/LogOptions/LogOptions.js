@@ -31,12 +31,12 @@ export default function LogOptions() {
       console.log('USER DATA:', userData)
       return (
         
-        <Container className="auth-options mx-3">
+        <Container className="mb-5 navButtons">
           {userData.user ? (
             <Button className="btn-blue" onClick={logout}>Log out</Button>
           ) : (
             
-            <Container className=''>
+            <Container className='navbuttons mb-5'>
               <Button className="btn-blue" onClick={register}>Register</Button>
               <Button className="btn-blue" onClick={login}>Log in</Button>
             </Container>
