@@ -1,23 +1,20 @@
-html {
-    scroll-behavior: smooth;
-}
-body
-{
-    padding: 10px;
-    margin-top: none;
-    background-color: white;
-    color: #6B7378;
+
+body{
+    align-items: center;
+    /* background-image: url('./BlueBg.png'); */
+    background-size: flex, center;
+    background-repeat: no-repeat;
+   
 }
 
-.btn-blue{
+
+
+  .btn-blue{
     background-color: #5F95D0!important;
-    color:#6B7378!important;
+    color:white!important;
     border: none !important;
     border-radius: 0!important;
-    align-content: right!important;
-    align-self: right!important;
-    margin-right: 3;
-    padding:0!important
+    padding: 5px
 
-
-} 
+    
+}

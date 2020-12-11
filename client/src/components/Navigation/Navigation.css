@@ -20,6 +20,7 @@ body
 }
 .navbar-collapse{
     flex-basis: none!important;
+    align-content: center;
     width: 500px!important;
     display: inline!important;
     width: 500px!important;
@@ -31,7 +32,6 @@ body
 }
 .navbar a:hover{
     color:#6B7378!important;
-    align-content: center!important;
     align-content: center;
     padding: 10px;
 }
