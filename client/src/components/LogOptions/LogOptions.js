@@ -5,6 +5,7 @@ import {Button, Container} from "react-bootstrap";
 import UserContext from '../../Context/UserContext';
 import './LogOptions.css'
 
+
 export default function LogOptions() {
     const { userData, setUserData } = useContext(UserContext);
     const history = useHistory();

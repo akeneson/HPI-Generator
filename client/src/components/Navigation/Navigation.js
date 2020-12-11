@@ -28,22 +28,21 @@ const Navigation = () => {
     <Jumbotron bg-cover style={jumbotronStyles} >
 
     </Jumbotron>
-      
+
     <Navbar expand="lg" className="mb-5">
-  
   <Navbar.Toggle aria-controls="basic-navbar-nav" />
   <Navbar.Collapse id="basic-navbar-nav">
     <Nav className="mx-auto ">
     <Nav.Link href="/home"><h4>HOME</h4></Nav.Link>
       <Nav.Link href="/register"><h4>REGISTER</h4></Nav.Link>
       <Nav.Link href="/login"><h4>LOGIN</h4></Nav.Link>
-      <Nav.Link href="/about"><h4>ABOUT US</h4></Nav.Link>     
+      <Nav.Link href="/about"><h4>ABOUT US</h4></Nav.Link>  
+       
     </Nav>
     {/* <LogOptions className="mx-auto"/> */}
     {/* <Time/> */}
   </Navbar.Collapse>
-  
-  
+
 </Navbar>
 
 
