@@ -2,13 +2,13 @@ import React, { useState, useEffect, useRef } from "react";
 import { UncontrolledAlert } from 'reactstrap';
 import "./style.css";
 import API from "../../utils/API";
-
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 const HPIFeedCell = () => {
 
     const [patientRecords, setPatientRecords] = useState([]);
 
+    
     useEffect(()=> {
         API.getPatientRecords()
         .then(res => {
@@ -18,7 +18,7 @@ const HPIFeedCell = () => {
         .catch(err => console.log(err));
 
     }, []);
-    
+
     //usestate to copy 
 
     const [copySuccess, setCopySuccess] = useState('');

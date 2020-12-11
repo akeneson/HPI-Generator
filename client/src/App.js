@@ -17,6 +17,7 @@ import Time from "./components/CurrTime/CurrTimePage";
 // Import Fontawesome Library Component
 import "./components/FontawesomeIcons";
 
+
 function App() {
   const [userData, setUserData] = useState({
     token: undefined,
@@ -41,7 +42,7 @@ function App() {
         });
         setUserData({
           token,
-          user: userRes.data,
+          user: [userRes.data],
         })
       }
     }
