@@ -3,11 +3,12 @@ import { UncontrolledAlert } from 'reactstrap';
 import "./style.css";
 import API from "../../utils/API";
 
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+
 const HPIFeedCell = () => {
 
     const [patientRecords, setPatientRecords] = useState([]);
 
-    
     useEffect(()=> {
         API.getPatientRecords()
         .then(res => {
@@ -40,9 +41,9 @@ const HPIFeedCell = () => {
                     <div className="card card-rounded m-4">
                         <div className="card-header">
                 <h3><i class="fa fa-user" aria-hidden="true"></i>{patientRecord.patientName}</h3>
-                            <h5><i class="fa fa-birthday-cake" aria-hidden="true"></i>Born: {patientRecord.dob}</h5>
-                            <h5><i class="fa fa-stethoscope" aria-hidden="true"></i>Symptoms: {patientRecord.symptom}</h5>
-                            <h5><i class="fa fa-calendar" aria-hidden="true"></i>Date of Visit: {patientRecord.apptDate} </h5>
+                            <h5><FontAwesomeIcon icon="birthday-cake" className="funIcons"/>DOB: {patientRecord.dob}</h5>
+                            <h5><FontAwesomeIcon icon="stethoscope" className="funIcons" />Reason for Visit: {patientRecord.symptom}</h5>
+                            <h5><FontAwesomeIcon icon="calendar"className="funIcons" />Date of Visit: {patientRecord.apptDate} </h5>
                         </div>
                         <div className="card-body">
                             <div className="form-group">

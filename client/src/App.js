@@ -12,6 +12,9 @@ import Register from './components/Register/Register';
 import Login from "./components/Login/LoginPage";
 import AboutPage from "./components/About/About"
 
+// Import Fontawesome Library Component
+import "./components/FontawesomeIcons";
+
 function App() {
   const [userData, setUserData] = useState({
     token: undefined,
