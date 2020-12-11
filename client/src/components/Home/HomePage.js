@@ -174,15 +174,16 @@ const Home = (props) => {
     
     const [symptomInput, setSymptomInput] = useState();
     const [durationInput, setDurationInput] = useState();
-    const [durationDivInput, setdurationDivInput] = useState(false);
+    //const [durationDivInput, setdurationDivInput] = useState(false);
     const [qualityInput, setQualityInput] = useState("quality");
-    const [qualityDivInput, setqualityDivInput] = useState(true);
+    //const [qualityDivInput, setqualityDivInput] = useState(true);
     const [radiationInput, setRadiationInput] = useState([]);
     const [painInput, setPainInput] = useState();
     const [assSympInput, setAssSympInput] = useState([]);
     const [pallativeInput, setPallativeInput] = useState([]);
     const [provocativeInput, setProvocativeInput] = useState([]);
     const [qunatityInput, setqunatityInput] = useState([]);
+    const [qunatityDivInput, setqunatityDivInput] = useState(false);
 
     
     function handleInput(e) {
@@ -190,7 +191,7 @@ const Home = (props) => {
       
       //setqualityDivInput(qualityDivInput => ({ qualityDivInput: !qualityDivInput }));
       if(e.target.name==="symptoms"){
-        setdurationDivInput(durationDivInput => ({ durationDivInput: !durationDivInput }));
+        //setdurationDivInput(durationDivInput => ({ durationDivInput: !durationDivInput }));
         setSymptomInput( e.target.innerText)
       }
       if(e.target.name==="Qualities"){
@@ -228,6 +229,7 @@ const Home = (props) => {
         
       }
       if(e.target.name==="Quantities"){
+        setqunatityDivInput(qunatityDivInput => ({ qunatityDivInput: !qunatityDivInput }));
         //setqunatityInput( e.target.innerText)
         const quantitiesSymptom = e.target.innerText;
         if(!qunatityInput.includes(quantitiesSymptom)) {
@@ -253,11 +255,7 @@ const Home = (props) => {
     newUserInput = useContext(InputContext)
     userInputCon = inputs;
     newUserInput=userInputCon;
-
-    
-
-    
-    
+  
   return (
     <>
     {/* <InputProvider value={inputs}> */}
@@ -273,7 +271,7 @@ const Home = (props) => {
                   <Nav.Link eventKey="first">Symptom</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                  <Nav.Link eventKey="second" className={qualityDivInput ? "disable" : "enable"}>Duration</Nav.Link>
+                  <Nav.Link eventKey="second" >Duration</Nav.Link>
                 </Nav.Item>
                 <Nav.Item >
                   <Nav.Link eventKey="third" >Quality</Nav.Link>
@@ -307,7 +305,6 @@ const Home = (props) => {
                   ))}
                 </Tab.Pane>
                 <Tab.Pane eventKey="second">
-                    <a>Please answer previous question</a>
                     <div>
                       <h3>How long have you been experiencing symptoms?</h3>
                         <Duration onChangeHandler={setDurationInput}/>
@@ -355,10 +352,12 @@ const Home = (props) => {
                     ))}
                 </Tab.Pane>
                 <Tab.Pane eventKey="ninth">
-                  <h3>How often do you experience symptoms?</h3>
-                    {Quantities.map((Quantity) =>(
-                      <Button  color="success" className="Btn" onClick={(e)=>handleInput(e)} name="Quantities">{Quantity}</Button>
-                    ))}
+                    <div >
+                      <h3>How often do you experience symptoms?</h3>
+                        {Quantities.map((Quantity) =>(
+                          <Button  color="success" className="Btn" onClick={(e)=>handleInput(e)} name="Quantities">{Quantity}</Button>
+                        ))}
+                    </div>
                 </Tab.Pane>
                 <Tab.Pane eventKey="tenth">
                   <HPIPage />
@@ -368,8 +367,10 @@ const Home = (props) => {
           </Row>
         </Tab.Container>
       </Container>
-      <Row className="submitBtn">
-        <Button onClick={(e)=>handleSubmit(e)}>Submit</Button>
+      <Row >
+        <div className={qunatityDivInput ? "" : "hidden"} style={{padding:"auto"}}>
+          <Button onClick={(e)=>handleSubmit(e)}>Preview</Button>
+        </div>
       </Row>
     </>
   );
