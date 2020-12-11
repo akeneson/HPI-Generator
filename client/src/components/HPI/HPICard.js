@@ -79,10 +79,13 @@ const HPICard = (props) => {
    Patient rates their pain as a ${location.values ? location.values[3].PainLevel : "Error"}/10. ${quantitiesText}.
    ${provocativesText}. ${pallativesText}. ${AssSymptsText}. `;
 
+
+   
    const submit = async (e) => {
       e.preventDefault();
+
       try {
-         const newRecord = await { user, patientName, patientId, dob, symptom, assocSymptoms, palliative, provocative, radiation, severity, hpi }
+         const newRecord = { user, patientName, patientId, dob, symptom, assocSymptoms, palliative, provocative, radiation, severity, hpi }
          await Axios.post("./api/patientrecords/", newRecord)
       } catch (err) {
          err.response.data.msg && setError(err.response.data.msg)
