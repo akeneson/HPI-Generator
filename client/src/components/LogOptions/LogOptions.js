@@ -5,7 +5,6 @@ import {Button, Container} from "react-bootstrap";
 import UserContext from '../../Context/UserContext';
 import './LogOptions.css'
 
-
 export default function LogOptions() {
     const { userData, setUserData } = useContext(UserContext);
     const history = useHistory();
@@ -32,12 +31,12 @@ export default function LogOptions() {
       console.log('USER DATA:', userData)
       return (
         
-        <Container className="mb-5 navButtons">
+        <Container className="auth-options mx-3">
           {userData.user ? (
             <Button className="btn-blue" onClick={logout}>Log out</Button>
           ) : (
             
-            <Container className='navbuttons mb-5'>
+            <Container className=''>
               <Button className="btn-blue" onClick={register}>Register</Button>
               <Button className="btn-blue" onClick={login}>Log in</Button>
             </Container>
