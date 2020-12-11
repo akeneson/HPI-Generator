@@ -5,6 +5,8 @@ import Axios from 'axios';
 import ErrorNotice from "../Error/ErrorNotice"
 import { Form, Button, Card, Row } from "react-bootstrap";
 import './LoginPage.css';
+import Time from '../CurrTime/CurrTimePage'
+
 
 const LoginPage = () => {
   const [email, setEmail] = useState();
@@ -67,6 +69,7 @@ return(
     </Card.Text>
     
   </Card.Body>
+  <Time /> 
 </Card>
 </Row>
 
