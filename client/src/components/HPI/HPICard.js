@@ -9,14 +9,33 @@ import { useHistory } from 'react-router-dom';
 const HPICard = (props) => {
     const history = useHistory();
     const { userData } = useContext(UserContext);
-    const user = [userData.user]
+    const user = [userData.user];
+    const patientId = user[0].firstName
+    // const symptom = location.values[2].Qualities
+
+    console.log("patientId", patientId)
 
     //redirects user to login page if not logged in
     useEffect(() => {
+        // e.preventDefault();
         if (!userData.user) history.push("/login")
         // console.log("HPI Card userData: ", [user])
     }, [user])
     
+    // const submit = async (e) =>{
+    //     e.preventDefault();
+        
+    //     try {
+            
+    //         const newPatientRecord = {patientId, symptom, symptomStart, assocSymptoms, palliative, provocative, qualityType, radiation, severity, hpi, dob, patientName}
+            
+    //     } catch (err) {
+    //         err.response.data.msg && setError(err.response.data.msg);
+    //       }
+
+    // };
+
+
     const location = useLocation();
     useEffect(() => {
         console.log(location.values);
