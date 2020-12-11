@@ -36,3 +36,4 @@ const Duration = (props) => {
 };
 
 export default Duration;
+
