@@ -7,11 +7,13 @@ body
     margin-top: none;
     background-color: white;
     color: #6B7378;
+    align-content: center!important;
 }
 
 .backimage {
     background-image: url('./BlueBg.png');
     padding:40px;
+    align-self: center!important;
 }
 
 /* .companyImage {

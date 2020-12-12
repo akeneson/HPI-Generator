@@ -107,8 +107,8 @@ const Home = (props) => {
     "wrist pain",
   ]
   const Durations = [
-    "Today",
-    "Yesterday",
+    "today",
+    "yesterday",
     "2 Days ago",
     "3 Days ago",
     "4 Days ago",
@@ -116,108 +116,94 @@ const Home = (props) => {
     "6 Days ago"
   ]
     const Qualities = [
-      "Sharp",
-      "Burning",
-      "Pressure",
-      "Knifelike",
-      "Sore",
-      "Aching",
-      "Stabbing"
+      "sharp",
+      "burning",
+      "pressure",
+      "knifelike",
+      "sore",
+      "aching",
+      "atabbing"
   ]
     const PainLevel = [
       "0","1","2","3","4","5","6","7","8","9","10"
   ]
     const Radiations = [
-      "Head",
-      'Neck',
-      'Arm',
-      'Wrist',
-      'Hand',
-      'Finger',
-      'Chest',
-      'Upper Abdomen',
-      'Lower Abdomen',
-      'Upper Back',
-      'Lower Back',
-      'Groin',
-      'Legs',
-      'Calf',
-      'Ankle',
-      'Foot',
-      'Toes',
+      "head",
+      'neck',
+      'arm',
+      'wrist',
+      'hand',
+      'finger',
+      'chest',
+      'upper abdomen',
+      'lower abdomen',
+      'upper back',
+      'lower back',
+      'groin',
+      'legs',
+      'calf',
+      'ankle',
+      'foot',
+      'toes',
       'N/A'
   ]
     const AssSymps = [
-      '*Fatigue',
-      '*Fever',
-     '*Chills',
-      'Abdominal Pain',
-      'Nausea',
-      'Vomiting',
-      'Diarrhea',
-      'Constipation',
-      'Cough',
-      'Phlegm',
-      'Headache',
-      'Dizziness',
-      'Earache',
-      'Shortness of Breath',
-      'Chest Pain',
-      'Trouble Eating',
-      'Rash',
-      'Bleeding',
-      'Bruising',
-      'Trouble Talking',
-      'Trouble Swallowing',
-      'Sore Throat',
-      'Joint Pain',
-      'Trouble Walking',
-      'Vision Changes',
-      'Eye Discharge',
-      'Urinary Frequency',
-      'Urinary Urgency',
-      'Painful Urination',
+      'fatigue',
+      'fever',
+     'chills',
+      'abdominal pain',
+      'nausea',
+      'vomiting',
+      'diarrhea',
+      'constipation',
+      'cough',
+      'phlegm',
+      'headache',
+      'dizziness',
+      'earache',
+      'shortness of breath',
+      'chest pain',
+      'trouble eating',
+      'rash',
+      'bleeding',
+      'bruising',
+      'trouble talking',
+      'trouble swallowing',
+      'sore throat',
+      'joint pain',
+      'trouble walking',
+      'vision changes',
+      'eye discharge',
+      'urinary frequency',
+      'urinary urgency',
+      'painful urination',
       'N/A'
   ]
     const Pallatives = [
-        "Rest", "Ice", "Heat", "Bandage", "Elevation", "Ibuprofen", "Tylenol", "Over-the-Counter Medications", "Inhaler", "Nebulizer Treatments", "Prescribed Medications", "Anti-Nausea Medication", "Anti-Dizziness Medication", "Cough Medication", "Antibiotics", "Ear Drops", "Splinting", "Standing", "Sitting", "Walking", "N/A"
+        "rest", "ice", "heat", "bandage", "elevation", "ibuprofen", "tylenol", "over-the-Counter medications", "inhaler", "nebulizer treatments", "prescribed medications", "anti-nausea medication", "anti-dizziness medication", "cough medication", "antibiotics", "ear drops", "dplinting", "standing", "sitting", "walking", "N/A"
   ]
     const Provocatives = [
       'movement',
-      'Rest',
-      'Ice',
-      'Heat',
-      'Bandage',
-      'Elevation',
-      'Ibuprofen',
-      'Tylenol',
-      'Over-the-Counter Medications',
-      'Splinting',
-      'Standing',
-      'Sitting',
-      'Walking',
-      'Running',
-      'Touching',
-      'Pushing',
-      'Pulling',
-      'Lifting',
-      'Working Out',
-      'Typing',
-      'Writing',
-      'Cooking',
-      'Washing Dishes',
-      'Doing Laundry',
-      'Mopping',
-      'Mowing the Grass',
-      'Walking Long Distances',
-      'Sitting for Long Periods of Time',
-      'N/A'
+      'rest',
+      'splinting',
+      'standing',
+      'sitting',
+      'walking',
+      'running',
+      'touching',
+      'pushing',
+      'pulling',
+      'lifting',
+      'working out',
+      'typing',
+      'writing',
+      'activities of daily living'
   ]
     const Quantities = [
-      'Intermittent',
-      'Constant',
-      'Gradual',
-      'Acute Onset',
+      'intermittent',
+      'constant',
+      'gradual',
+      'acute onset',
       'N/A'
   ]
   
@@ -234,6 +220,7 @@ const Home = (props) => {
     const [provocativeInput, setProvocativeInput] = useState([]);
     const [qunatityInput, setqunatityInput] = useState([]);
     const [qunatityDivInput, setqunatityDivInput] = useState(false);
+    const [tabRequest, setEnabled] = useState(true)
 
     
     function handleInput(e) {
@@ -305,13 +292,13 @@ const Home = (props) => {
     newUserInput = useContext(InputContext)
     userInputCon = inputs;
     newUserInput=userInputCon;
+
+    // if(symptomInput !== ""){
+    //   setEnabled(false)
+    // }
   
   return (
     <>
-    {/* <InputProvider value={inputs}> */}
-    {/* {console.log("SYMP", symptomInput)}
-    {console.log("INPUTS", inputs)}
-    {console.log("context works!", newUserInput)} */}
       <Container>
             <Tab.Container id="left-tabs-example" defaultActiveKey="first">
           <Row>
@@ -351,7 +338,7 @@ const Home = (props) => {
                 <Tab.Pane eventKey="first">
                   <h3>What is your main symptom today? (Pick one)</h3>
                   {symptoms.map((symptom) =>(
-                    <Button  color="success" className="Btn" onClick={(e)=>{handleInput(e);  }} name="symptoms">{symptom}</Button>
+                    <Button  color="success" className="Btn" onClick={(e)=>{handleInput(e); e.target.style.background="gray"}} name="symptoms">{symptom}</Button>
                   ))}
                 </Tab.Pane>
                 <Tab.Pane eventKey="second">
@@ -363,49 +350,49 @@ const Home = (props) => {
                 <Tab.Pane eventKey="third" >
                     {/* <div className={qualityDivInput ? "" : "hidden"}> */}
                     <div>
-                      <h3>What is the quality of the symptom(s) you are experiencing?</h3>
+                      <h3>Please select the words that best describe your symptoms.</h3>
                         {Qualities.map((Quality) =>(
-                          <Button color="success" className="Btn" onClick={(e)=>handleInput(e)} name="Qualities">{Quality}</Button>
+                          <Button color="success" className="Btn" onClick={(e)=>{handleInput(e); e.target.style.background="gray"}} name="Qualities">{Quality}</Button>
                         ))}
                     </div>
                 </Tab.Pane>
                 <Tab.Pane eventKey="fourth">
-                  <h3>Please describe your pain level.</h3>
+                  <h3>Please pick the severity of your symptoms.</h3>
                     <img src="https://www.prohealth.com/wp-content/uploads/2015/04/pain-scale-859x305.jpg" alt="pain"></img>
                     {/* <PainLevel /> */}
                     {PainLevel.map((pain) =>(
-                      <Button  color="success" className="Btn painBtn" onClick={(e)=>handleInput(e)} name="PainLevel">{pain}</Button>
+                      <Button  color="success" className="Btn painBtn" onClick={(e)=>{handleInput(e); e.target.style.background="gray"}} name="PainLevel">{pain}</Button>
                     ))}
                 </Tab.Pane>
                 <Tab.Pane eventKey="fifth">
-                  <h3>Where are the symptoms radiating from?</h3>
+                  <h3>Where are the symptoms radiating to?</h3>
                     {Radiations.map((Radiation) =>(
-                      <Button color="success" className="Btn" onClick={(e)=>handleInput(e)} name="Radiations">{Radiation}</Button>
+                      <Button color="success" className="Btn" onClick={(e)=>{handleInput(e); e.target.style.background="gray"}} name="Radiations">{Radiation}</Button>
                     ))}
                 </Tab.Pane>
                 <Tab.Pane eventKey="sixth">
-                  <h3>Are you experiencing any associated symptoms?</h3>
+                  <h3>Please select other symptoms that you are experiencing</h3>
                     {AssSymps.map((AssSymp) =>(
-                      <Button  color="success" className="Btn" onClick={(e)=>handleInput(e)} name="AssSymps">{AssSymp}</Button>
+                      <Button  color="success" className="Btn" onClick={(e)=>{handleInput(e); e.target.style.background="gray"}} name="AssSymps">{AssSymp}</Button>
                     ))}
                 </Tab.Pane>
                 <Tab.Pane eventKey="seventh">
-                  <h3>Have you tried any of the following to ease your pain/symptoms?</h3>
+                  <h3>Which of the following have you tried ease your pain/symptoms?</h3>
                     {Pallatives.map((Pallative) =>(
-                      <Button  color="success" className="Btn" onClick={(e)=>handleInput(e)} name="Pallatives">{Pallative}</Button>
+                      <Button  color="success" className="Btn" onClick={(e)=>{handleInput(e); e.target.style.background="gray"}} name="Pallatives">{Pallative}</Button>
                     ))}
                 </Tab.Pane>
                 <Tab.Pane eventKey="eigth">
-                  <h3>Do any of the following things make your symptoms worse?</h3>
+                  <h3>Please let us know what makes your symptoms worse?</h3>
                     {Provocatives.map((Provocative) =>(
-                      <Button  color="success" className="Btn" onClick={(e)=>handleInput(e)} name="Provocatives">{Provocative}</Button>
+                      <Button  color="success" className="Btn" onClick={(e)=>{handleInput(e); e.target.style.background="gray"}} name="Provocatives">{Provocative}</Button>
                     ))}
                 </Tab.Pane>
                 <Tab.Pane eventKey="ninth">
                     <div >
                       <h3>How often do you experience symptoms?</h3>
                         {Quantities.map((Quantity) =>(
-                          <Button  color="success" className="Btn" onClick={(e)=>handleInput(e)} name="Quantities">{Quantity}</Button>
+                          <Button  color="success" className="Btn" onClick={(e)=>{handleInput(e); e.target.style.background="gray"}} name="Quantities">{Quantity}</Button>
                         ))}
                     </div>
                 </Tab.Pane>
@@ -421,9 +408,11 @@ const Home = (props) => {
     <ErrorNotice message={error} clearError={() => setError(undefined)} />
   )} */}
       <Row >
-        <div className={qunatityDivInput ? "" : "hidden"} style={{padding:"auto"}}>
-          <Button onClick={(e)=>handleSubmit(e)}>Preview</Button>
-        </div>
+          <Col md={{ span: 6, offset: 6 }}>
+            <div className={qunatityDivInput ? "" : "hidden"} style={{paddingTop:"20px"}} >
+              <Button variant="success" onClick={(e)=>handleSubmit(e)}>Next</Button>
+            </div>
+          </Col>
       </Row>
     </>
   );
