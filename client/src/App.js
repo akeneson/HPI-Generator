@@ -11,6 +11,12 @@ import UserContext from './Context/UserContext'
 import Register from './components/Register/Register';
 import Login from "./components/Login/LoginPage";
 import AboutPage from "./components/About/About"
+// import LogOptions from "./components/LogOptions/LogOptions";
+import Time from "./components/CurrTime/CurrTimePage";
+
+// Import Fontawesome Library Component
+import "./components/FontawesomeIcons";
+
 
 function App() {
   const [userData, setUserData] = useState({

@@ -2,22 +2,25 @@ import React, { useState, useEffect, useRef } from "react";
 import { UncontrolledAlert } from 'reactstrap';
 import "./style.css";
 import API from "../../utils/API";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import DownloadPDFButton from "../DownloadPDFButton";
+
 
 const HPIFeedCell = () => {
 
     const [patientRecords, setPatientRecords] = useState([]);
 
-    
-    useEffect(()=> {
+
+    useEffect(() => {
         API.getPatientRecords()
-        .then(res => {
-            console.log("Patient Records: ", res);
-            setPatientRecords(res);
-        })
-        .catch(err => console.log(err));
+            .then(res => {
+                console.log("Patient Records: ", res);
+                setPatientRecords(res);
+            })
+            .catch(err => console.log(err));
 
     }, []);
-    
+
     //usestate to copy 
 
     const [copySuccess, setCopySuccess] = useState('');
@@ -31,6 +34,16 @@ const HPIFeedCell = () => {
         setCopySuccess(<UncontrolledAlert color="success" fade={true}>Copied!</UncontrolledAlert>);
     };
 
+    // const MyDoc = (
+    //     <Document>
+    //         <Page>
+    //             <View>
+    //                 <Text>Here is our hpi</Text>
+    //             </View>
+    //         </Page>
+    //     </Document>
+    // );
+
     return (
         <div className="container">
 
@@ -39,10 +52,10 @@ const HPIFeedCell = () => {
                 return (
                     <div className="card card-rounded m-4">
                         <div className="card-header">
-                <h3><i class="fa fa-user" aria-hidden="true"></i>{patientRecord.patientName}</h3>
-                            <h5><i class="fa fa-birthday-cake" aria-hidden="true"></i>Born: {patientRecord.dob}</h5>
-                            <h5><i class="fa fa-stethoscope" aria-hidden="true"></i>Symptoms: {patientRecord.symptom}</h5>
-                            <h5><i class="fa fa-calendar" aria-hidden="true"></i>Date of Visit: {patientRecord.apptDate} </h5>
+                            <h3><i class="fa fa-user" aria-hidden="true"></i>{patientRecord.patientName}</h3>
+                            <h5><FontAwesomeIcon icon="birthday-cake" className="funIcons" />DOB: {patientRecord.dob}</h5>
+                            <h5><FontAwesomeIcon icon="stethoscope" className="funIcons" />Reason for Visit: {patientRecord.symptom}</h5>
+                            <h5><FontAwesomeIcon icon="calendar" className="funIcons" />Date of Visit: {patientRecord.apptDate} </h5>
                         </div>
                         <div className="card-body">
                             <div className="form-group">
@@ -58,9 +71,14 @@ const HPIFeedCell = () => {
                             </button>{copySuccess}
                                 </div>
                                 <div className="p-2">
-                                    <button type="button" className="btn btn-lg btn-outline-primary">
-                                        <i className="fas fa-file-download"></i> Download PDF
-                            </button>
+                                    <DownloadPDFButton patient={patientRecord.patientName} hpi={patientRecord.hpi}/>
+                                    {/* <BlobProvider document={MyDoc}>
+                                        {({ url }) => (
+                                            <a href={url} target="_blank" className="btn btn-lg btn-outline-primary">
+                                                <i className="fas fa-file-download"></i> Download PDF
+                                            </a>
+                                        )}
+                                    </BlobProvider> */}
                                 </div>
                             </div>
                         </div>

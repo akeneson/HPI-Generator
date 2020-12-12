@@ -1,3 +1,4 @@
+
 import React, { useState, useContext }  from 'react';
 import { useHistory } from 'react-router-dom';
 import UserContext from '../../Context/UserContext';
@@ -5,6 +6,8 @@ import Axios from 'axios';
 import ErrorNotice from "../Error/ErrorNotice"
 import { Form, Button, Card, Row } from "react-bootstrap";
 import './LoginPage.css';
+import Time from '../CurrTime/CurrTimePage'
+
 
 const LoginPage = () => {
   const [email, setEmail] = useState();
@@ -60,13 +63,14 @@ return(
     <Form.Control type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)}/>
   </Form.Group>
   
-  <Button variant="primary" type="submit" value="Log in">
+  <Button className="primary" type="submit" value="Log in">
     Submit
   </Button>
 </Form>
     </Card.Text>
     
   </Card.Body>
+  <Time /> 
 </Card>
 </Row>
 
