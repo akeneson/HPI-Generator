@@ -57,8 +57,8 @@ const Home = (props) => {
     "wrist pain",
   ]
   const Durations = [
-    "Today",
-    "Yesterday",
+    "today",
+    "yesterday",
     "2 Days ago",
     "3 Days ago",
     "4 Days ago",
@@ -66,108 +66,94 @@ const Home = (props) => {
     "6 Days ago"
   ]
     const Qualities = [
-      "Sharp",
-      "Burning",
-      "Pressure",
-      "Knifelike",
-      "Sore",
-      "Aching",
-      "Stabbing"
+      "sharp",
+      "burning",
+      "pressure",
+      "knifelike",
+      "sore",
+      "aching",
+      "atabbing"
   ]
     const PainLevel = [
       "0","1","2","3","4","5","6","7","8","9","10"
   ]
     const Radiations = [
-      "Head",
-      'Neck',
-      'Arm',
-      'Wrist',
-      'Hand',
-      'Finger',
-      'Chest',
-      'Upper Abdomen',
-      'Lower Abdomen',
-      'Upper Back',
-      'Lower Back',
-      'Groin',
-      'Legs',
-      'Calf',
-      'Ankle',
-      'Foot',
-      'Toes',
+      "head",
+      'neck',
+      'arm',
+      'wrist',
+      'hand',
+      'finger',
+      'chest',
+      'upper abdomen',
+      'lower abdomen',
+      'upper back',
+      'lower back',
+      'groin',
+      'legs',
+      'calf',
+      'ankle',
+      'foot',
+      'toes',
       'N/A'
   ]
     const AssSymps = [
-      '*Fatigue',
-      '*Fever',
-     '*Chills',
-      'Abdominal Pain',
-      'Nausea',
-      'Vomiting',
-      'Diarrhea',
-      'Constipation',
-      'Cough',
-      'Phlegm',
-      'Headache',
-      'Dizziness',
-      'Earache',
-      'Shortness of Breath',
-      'Chest Pain',
-      'Trouble Eating',
-      'Rash',
-      'Bleeding',
-      'Bruising',
-      'Trouble Talking',
-      'Trouble Swallowing',
-      'Sore Throat',
-      'Joint Pain',
-      'Trouble Walking',
-      'Vision Changes',
-      'Eye Discharge',
-      'Urinary Frequency',
-      'Urinary Urgency',
-      'Painful Urination',
+      'fatigue',
+      'fever',
+     'chills',
+      'abdominal pain',
+      'nausea',
+      'vomiting',
+      'diarrhea',
+      'constipation',
+      'cough',
+      'phlegm',
+      'headache',
+      'dizziness',
+      'earache',
+      'shortness of breath',
+      'chest pain',
+      'trouble eating',
+      'rash',
+      'bleeding',
+      'bruising',
+      'trouble talking',
+      'trouble swallowing',
+      'sore throat',
+      'joint pain',
+      'trouble walking',
+      'vision changes',
+      'eye discharge',
+      'urinary frequency',
+      'urinary urgency',
+      'painful urination',
       'N/A'
   ]
     const Pallatives = [
-        "Rest", "Ice", "Heat", "Bandage", "Elevation", "Ibuprofen", "Tylenol", "Over-the-Counter Medications", "Inhaler", "Nebulizer Treatments", "Prescribed Medications", "Anti-Nausea Medication", "Anti-Dizziness Medication", "Cough Medication", "Antibiotics", "Ear Drops", "Splinting", "Standing", "Sitting", "Walking", "N/A"
+        "rest", "ice", "heat", "bandage", "elevation", "ibuprofen", "tylenol", "over-the-Counter medications", "inhaler", "nebulizer treatments", "prescribed medications", "anti-nausea medication", "anti-dizziness medication", "cough medication", "antibiotics", "ear drops", "dplinting", "standing", "sitting", "walking", "N/A"
   ]
     const Provocatives = [
       'movement',
-      'Rest',
-      'Ice',
-      'Heat',
-      'Bandage',
-      'Elevation',
-      'Ibuprofen',
-      'Tylenol',
-      'Over-the-Counter Medications',
-      'Splinting',
-      'Standing',
-      'Sitting',
-      'Walking',
-      'Running',
-      'Touching',
-      'Pushing',
-      'Pulling',
-      'Lifting',
-      'Working Out',
-      'Typing',
-      'Writing',
-      'Cooking',
-      'Washing Dishes',
-      'Doing Laundry',
-      'Mopping',
-      'Mowing the Grass',
-      'Walking Long Distances',
-      'Sitting for Long Periods of Time',
-      'N/A'
+      'rest',
+      'splinting',
+      'standing',
+      'sitting',
+      'walking',
+      'running',
+      'touching',
+      'pushing',
+      'pulling',
+      'lifting',
+      'working out',
+      'typing',
+      'writing',
+      'activities of daily living'
   ]
     const Quantities = [
-      'Intermittent',
-      'Constant',
-      'Gradual',
-      'Acute Onset',
+      'intermittent',
+      'constant',
+      'gradual',
+      'acute onset',
       'N/A'
   ]
   
@@ -302,7 +288,7 @@ const Home = (props) => {
                 <Tab.Pane eventKey="first">
                   <h3>What is your main symptom today? (Pick one)</h3>
                   {symptoms.map((symptom) =>(
-                    <Button  color="success" className="Btn" onClick={(e)=>{handleInput(e);  }} name="symptoms">{symptom}</Button>
+                    <Button  color="success" className="Btn" onClick={(e)=>{handleInput(e); e.target.style.background="gray"}} name="symptoms">{symptom}</Button>
                   ))}
                 </Tab.Pane>
                 <Tab.Pane eventKey="second">
@@ -321,11 +307,11 @@ const Home = (props) => {
                     </div>
                 </Tab.Pane>
                 <Tab.Pane eventKey="fourth">
-                  <h3>Please describe your pain level.</h3>
+                  <h3>Please pick the severity of your symptoms.</h3>
                     <img src="https://www.prohealth.com/wp-content/uploads/2015/04/pain-scale-859x305.jpg" alt="pain"></img>
                     {/* <PainLevel /> */}
                     {PainLevel.map((pain) =>(
-                      <Button  color="success" className="Btn painBtn" onClick={(e)=>handleInput(e)} name="PainLevel">{pain}</Button>
+                      <Button  color="success" className="Btn painBtn" onClick={(e)=>{handleInput(e); e.target.style.background="gray"}} name="PainLevel">{pain}</Button>
                     ))}
                 </Tab.Pane>
                 <Tab.Pane eventKey="fifth">
