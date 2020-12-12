@@ -24,30 +24,30 @@ function App() {
     user: undefined,
   })
 
-  useEffect(() => {
-    const loginCheck = async () => {
-      let token = localStorage.getItem('auth-token');
-      if (token === null) {
-        localStorage.setItem('auth-token', "");
-        token = ""
-      }
+  // useEffect(() => {
+  //   const loginCheck = async () => {
+  //     let token = localStorage.getItem('auth-token');
+  //     if (token === null) {
+  //       localStorage.setItem('auth-token', "");
+  //       token = ""
+  //     }
       
-      const tokenRes = await Axios.post('/api/users/validToken', null,
-        { headers: { 'x-auth-token': token } }
-      );
-      console.log('token response', tokenRes)
-      if (tokenRes.data) {
-        const userRes = await Axios.get('/api/users/', {
-          headers: { 'x-auth-token': token },
-        });
-        setUserData({
-          token,
-          user: userRes.data,
-        })
-      }
-    }
-    loginCheck();
-  }, []);
+  //     const tokenRes = await Axios.post('/api/users/validToken', null,
+  //       { headers: { 'x-auth-token': token } }
+  //     );
+  //     console.log('token response', tokenRes)
+  //     if (tokenRes.data) {
+  //       const userRes = await Axios.get('/api/users/', {
+  //         headers: { 'x-auth-token': token },
+  //       });
+  //       setUserData({
+  //         token,
+  //         user: userRes.data,
+  //       })
+  //     }
+  //   }
+  //   loginCheck();
+  // }, []);
 
   return (
     <Router>

@@ -97,10 +97,10 @@ const HPICard = (props) => {
    let re = /\d{4}/
    let bornYear = re.exec(age);
    let currYear = new Date().getFullYear()
-   // let userAge = currYear - bornYear[0];
+   let userAge = currYear - bornYear[0];
 
 
-   const hpi = ` ${patientName} is a {userAge}-year old ${user[0].gender} who reports ${location.values ? location.values[0].symptoms : "Error"} for ${location.values ? location.values[1].Duration : "Error"} days. 
+   const hpi = ` ${patientName} is a ${userAge}-year old ${user[0].gender} who reports ${location.values ? location.values[0].symptoms : "Error"} for ${location.values ? location.values[1].Duration : "Error"} days. 
    Patient describes their symptom as ${location.values ? location.values[2].Qualities : "Error"}. ${radiationText}.
    Patient rates their pain as a ${location.values ? location.values[3].PainLevel : "Error"}/10. ${quantitiesText}.
    ${provocativesText}. ${pallativesText}. ${AssSymptsText}. `;
@@ -146,7 +146,7 @@ const HPICard = (props) => {
                   <div className="card-body">
                      <div className="form-group">
                         <p>
-                           {user[0].firstName} {user[0].lastName} is a userAge-year old {user[0].gender} who reports {location.values ? location.values[0].symptoms : "Error"} for {location.values ? location.values[1].Duration : "Error"} days.
+                           {user[0].firstName} {user[0].lastName} is a {userAge}-year old {user[0].gender} who reports {location.values ? location.values[0].symptoms : "Error"} for {location.values ? location.values[1].Duration : "Error"} days.
                               Patient describes their symptom as {location.values ? location.values[2].Qualities : "Error"}. {radiationText}.
                               Patient rates their pain as a {location.values ? location.values[3].PainLevel : "Error"}/10. {quantitiesText}.
                               {provocativesText}. {pallativesText}. {AssSymptsText}.
