@@ -29,7 +29,7 @@ const Navigation = () => {
     console.log('USER DATA:', userData)
   return (
     <>
-    <body className="backimage">
+    <body className="backimage mb-5">
  <Container>
     <Card.Title className="companyName">Millennial Health Inc.</Card.Title> 
     </Container>
