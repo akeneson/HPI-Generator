@@ -17,7 +17,7 @@ const FeedPage = () => {
     
     const loginCheck = async () => {
       let token = localStorage.getItem('auth-token');
-      console.log(token)
+      // console.log(token)
       if (!token) {
         localStorage.setItem('auth-token', "");
         token = "";

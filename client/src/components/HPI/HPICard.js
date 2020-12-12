@@ -88,7 +88,7 @@ const HPICard = (props) => {
             user: userRes.data,
           })
         }
-                console.log('hpi card userData', user)
+               //  console.log('hpi card userData', user)
       }
       loginCheck();
     }, []);

@@ -23,7 +23,7 @@ const Home = (props) => {
   useEffect(() => {
 
     const loginCheck = async () => {
-      console.log(token)
+      // console.log(token)
       if (!token) {
         localStorage.setItem('auth-token', "");
         token = "";
