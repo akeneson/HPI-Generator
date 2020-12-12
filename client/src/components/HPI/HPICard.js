@@ -62,19 +62,44 @@ const HPICard = (props) => {
    const severity = location.values[3].PainLevel
 
    //redirects user to login page if not logged in
+   // useEffect(() => {
+   //    if (!userData.user) history.push("/login")
+   //    console.log("HPI Card userData: ", [userData])
+   // })
    useEffect(() => {
-      if (!userData.user) history.push("/login")
-      console.log("HPI Card userData: ", [userData])
-   })
+      const loginCheck = async () => {
+        let token = localStorage.getItem('auth-token');
+        if (token === null) {
+          localStorage.setItem('auth-token', "");
+          token = ""
+        }
+        
+        const tokenRes = await Axios.post('/api/users/validToken', null,
+          { headers: { 'x-auth-token': token } }
+        );
+
+        if (tokenRes.data) {
+          const userRes = await Axios.get('/api/users/', {
+            headers: { 'x-auth-token': token },
+          });
+          setUserData({
+            token,
+            user: userRes.data,
+          })
+        }
+                console.log('hpi card userData', user)
+      }
+      loginCheck();
+    }, []);
 
    let age = user[0].dob
    let re = /\d{4}/
    let bornYear = re.exec(age);
    let currYear = new Date().getFullYear()
-   let userAge = currYear - bornYear[0];
+   // let userAge = currYear - bornYear[0];
 
 
-   const hpi = ` ${patientName} is a ${userAge}-year old ${user[0].gender} who reports ${location.values ? location.values[0].symptoms : "Error"} for ${location.values ? location.values[1].Duration : "Error"} days. 
+   const hpi = ` ${patientName} is a {userAge}-year old ${user[0].gender} who reports ${location.values ? location.values[0].symptoms : "Error"} for ${location.values ? location.values[1].Duration : "Error"} days. 
    Patient describes their symptom as ${location.values ? location.values[2].Qualities : "Error"}. ${radiationText}.
    Patient rates their pain as a ${location.values ? location.values[3].PainLevel : "Error"}/10. ${quantitiesText}.
    ${provocativesText}. ${pallativesText}. ${AssSymptsText}. `;
@@ -108,7 +133,7 @@ const HPICard = (props) => {
                   <div className="card-body">
                      <div className="form-group">
                         <p>
-                           {user[0].firstName} {user[0].lastName} is a {userAge}-year old {user[0].gender} who reports {location.values ? location.values[0].symptoms : "Error"} for {location.values ? location.values[1].Duration : "Error"} days.
+                           {user[0].firstName} {user[0].lastName} is a userAge-year old {user[0].gender} who reports {location.values ? location.values[0].symptoms : "Error"} for {location.values ? location.values[1].Duration : "Error"} days.
                               Patient describes their symptom as {location.values ? location.values[2].Qualities : "Error"}. {radiationText}.
                               Patient rates their pain as a {location.values ? location.values[3].PainLevel : "Error"}/10. {quantitiesText}.
                               {provocativesText}. {pallativesText}. {AssSymptsText}.

@@ -26,7 +26,7 @@ const Navigation = () => {
       localStorage.setItem("auth-token", "");
       history.push('/login')
     };
-    console.log('USER DATA:', userData)
+    // console.log('USER DATA:', userData)
   return (
     <>
     <body className="backimage">

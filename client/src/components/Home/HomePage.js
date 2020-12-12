@@ -4,19 +4,69 @@ import PainLevel from '../PainLevel/PainLevel';
 import Duration from '../Duration/DurationPage';
 import "./HomePage.css"
 import HPIPage from "../HPI/HPIPage";
-import InputContext from '../../Context/InputContext'
+import InputContext from '../../Context/InputContext';
+import Axios from 'axios';
 import { useHistory } from 'react-router-dom';
 import UserContext from '../../Context/UserContext';
+import ErrorNotice from "../Error/ErrorNotice"
 
 
 const Home = (props) => {
   const history = useHistory();
   const {userData} = useContext(UserContext);
+  const { setUserData } = useContext(UserContext);
+  const [error, setError] = useState();
   
+
+  // useEffect(()=> {
+    
+  //   const token = header('auth-token')
+  //   console.log('header', token)
+  //   if(!userData.user) history.push("/login")
+  // })
+
+  useEffect(() => {
+    const loginCheck = async () => {
+      let token = localStorage.getItem('auth-token');
+      if (token === null) {
+        localStorage.setItem('auth-token', "");
+        token = ""
+      }
+      
+      const tokenRes = await Axios.post('/api/users/validToken', null,
+        { headers: { 'x-auth-token': token } }
+      );
+      // console.log('token response', tokenRes)
+      if (tokenRes.data) {
+        const userRes = await Axios.get('/api/users/', {
+          headers: { 'x-auth-token': token },
+        });
+        setUserData({
+          token,
+          user: userRes.data,
+        }
+        )
+      }
+    }
+    loginCheck();
+  }, []);
+
+  console.log("Homepage: ", userData)
   //redirects user to login page if not logged in
-  useEffect(()=> {
-    if(!userData.user) history.push("/login")
-  })
+  // useEffect( async ()=> {
+  //   // e.preventDefault();
+  //   try {
+  //     const currentToken = userData.token;
+  //     console.log('currentToken', currentToken)
+  //     // await Axios.post(
+  //     //   "./api/users/validToken",
+  //     //   currentToken
+  //     // );
+  //     await localStorage.setItem("auth-token", currentToken);
+  //   } catch (err) {
+  //     err.response.data.msg && setError(err.response.data.msg);
+  //   }
+  // })
 
   const handleSubmit = event => {
     history.push({
@@ -367,6 +417,9 @@ const Home = (props) => {
           </Row>
         </Tab.Container>
       </Container>
+      {/* {error && (
+    <ErrorNotice message={error} clearError={() => setError(undefined)} />
+  )} */}
       <Row >
         <div className={qunatityDivInput ? "" : "hidden"} style={{padding:"auto"}}>
           <Button onClick={(e)=>handleSubmit(e)}>Preview</Button>
