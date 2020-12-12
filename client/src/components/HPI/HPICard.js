@@ -96,4 +96,3 @@ const HPICard = (props) => {
 }
 
 export default HPICard;
-

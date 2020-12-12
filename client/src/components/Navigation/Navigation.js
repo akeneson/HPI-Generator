@@ -19,8 +19,6 @@ const jumbotronStyles =
 
 }
             
-
-
 const Navigation = () => {
   return (
     <>
@@ -45,7 +43,6 @@ const Navigation = () => {
 
 </Navbar>
 
-
       {/* <Navbar bg="primary" variant="light">
         <Navbar.Brand href="#home" Text style={{color: "white" , fontSize: 50 , fontFamily: "Sacromento" }}>Millennial Health Inc.</Navbar.Brand>
        
@@ -55,5 +52,4 @@ const Navigation = () => {
     </>
   )
 }
-
 export default Navigation;
