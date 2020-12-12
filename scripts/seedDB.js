@@ -37,7 +37,7 @@ const patientRecordSeed = [
     radiation: ["chest"],
     severity: 7,
     symptomStart: new Date(Date.now()),
-    hpi: "Patient reports back pain after coding bootcamp"
+    hpi: "Patient reports brainfreeze while eating ice cream"
   },
   {
     patientName: "Robin R",
@@ -52,7 +52,7 @@ const patientRecordSeed = [
     radiation: ["right upper abdomen"],
     severity: 7,
     symptomStart: new Date(Date.now()),
-    hpi: "Amy Nguyen is a 44-year old Female who reports pain for 0 days. Patient describes their symptom as quality. Patient has radiation to their . Patient rates their pain as a /10. The patient's symptom is . The patient's symptom is worse with and better with . The patient admits to . The patient denies associated symptoms** fever, chills, or fatigue."
+    hpi: "Robin is a 22 year-old Female who reports pain for 0 days. Patient describes their symptom as quality. Patient has radiation to their . Patient rates their pain as a /10. The patient's symptom is . The patient's symptom is worse with and better with . The patient admits to . The patient denies associated symptoms** fever, chills, or fatigue."
   },
   {
     patientName: "Prabin",
@@ -67,7 +67,7 @@ const patientRecordSeed = [
     radiation: ["right upper abdomen"],
     severity: 7,
     symptomStart: new Date(Date.now()),
-    hpi: "Patient reports back pain after coding bootcamp"
+    hpi: "Patient reports fun times after visiting Disneyland"
   }
 ];
 

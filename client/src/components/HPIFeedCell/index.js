@@ -1,15 +1,14 @@
 import React, { useState, useEffect, useRef } from "react";
-import { UncontrolledAlert } from 'reactstrap';
 import "./style.css";
 import API from "../../utils/API";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import DownloadPDFButton from "../DownloadPDFButton";
+import CopyButton from "../CopyButton";
 
 
 const HPIFeedCell = () => {
 
     const [patientRecords, setPatientRecords] = useState([]);
-
 
     useEffect(() => {
         API.getPatientRecords()
@@ -20,29 +19,6 @@ const HPIFeedCell = () => {
             .catch(err => console.log(err));
 
     }, []);
-
-    //usestate to copy 
-
-    const [copySuccess, setCopySuccess] = useState('');
-    const textAreaRef = useRef(null);
-
-    //function to copy
-    function copyToClipboard(e) {
-        textAreaRef.current.select();
-        document.execCommand('copy');
-        e.target.focus();
-        setCopySuccess(<UncontrolledAlert color="success" fade={true}>Copied!</UncontrolledAlert>);
-    };
-
-    // const MyDoc = (
-    //     <Document>
-    //         <Page>
-    //             <View>
-    //                 <Text>Here is our hpi</Text>
-    //             </View>
-    //         </Page>
-    //     </Document>
-    // );
 
     return (
         <div className="container">
@@ -60,25 +36,16 @@ const HPIFeedCell = () => {
                         <div className="card-body">
                             <div className="form-group">
                                 <label for="HPItextarea">HPI</label>
-                                <textarea className="form-control" rows="4" ref={textAreaRef}>{patientRecord.hpi}
+                                <textarea className="form-control" rows="4">{patientRecord.hpi}
                                 </textarea>
                             </div>
 
                             <div className="d-flex bd-highlight mb-3">
                                 <div className="p-2">
-                                    <button type="button" patientId={patientRecord.id} className=" btn btn-lg btn-outline-secondary mr-2" onClick={copyToClipboard}>
-                                        <i className="far fa-copy "></i> Copy
-                            </button>{copySuccess}
+                                    <CopyButton textToCopy={patientRecord.hpi}/>
                                 </div>
                                 <div className="p-2">
                                     <DownloadPDFButton patient={patientRecord.patientName} hpi={patientRecord.hpi}/>
-                                    {/* <BlobProvider document={MyDoc}>
-                                        {({ url }) => (
-                                            <a href={url} target="_blank" className="btn btn-lg btn-outline-primary">
-                                                <i className="fas fa-file-download"></i> Download PDF
-                                            </a>
-                                        )}
-                                    </BlobProvider> */}
                                 </div>
                             </div>
                         </div>
