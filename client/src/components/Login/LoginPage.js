@@ -63,7 +63,7 @@ return(
     <Form.Control type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)}/>
   </Form.Group>
   
-  <Button variant="primary" type="submit" value="Log in">
+  <Button className="primary" type="submit" value="Log in">
     Submit
   </Button>
 </Form>

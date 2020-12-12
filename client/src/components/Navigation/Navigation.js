@@ -1,23 +1,12 @@
 import React, { useContext, useState }  from "react";
 import { NavLink} from "react-router-dom";
-import { Navbar, Nav, Form, Jumbotron, Container, Row, Col} from "react-bootstrap";
+import { Navbar, Nav, Form, Jumbotron, Container, Row, Col, Card} from "react-bootstrap";
 import Time from '../CurrTime/CurrTimePage'
-import LogOptions from "../LogOptions/LogOptions"
-import bgimage from "./header.png"
+// import LogOptions from "../LogOptions/LogOptions"
 import UserContext from '../../Context/UserContext';
 import { useHistory } from 'react-router-dom';
+import './Navigation.css';
 
-const jumbotronStyles = 
-{ 
-    height: '320px',  
-    backgroundImage: `url(${bgimage})`, 
-    backgroundSize: 'cover',
-    backgroundwidth: '100%',
-    backgroundheight: 'auto',
-    backgroundRepeat: 'no repeat',
-    backgroundPosition: 'center',
-
-}
             
 const Navigation = () => {
   const { userData, setUserData } = useContext(UserContext);
@@ -40,10 +29,11 @@ const Navigation = () => {
     console.log('USER DATA:', userData)
   return (
     <>
-    
-    <Jumbotron bg-cover style={jumbotronStyles} >
-
-    </Jumbotron>
+    <body className="backimage">
+ <Container>
+    <Card.Title className="companyName">Millennial Health Inc.</Card.Title> 
+    </Container>
+    </body>
 
     <Navbar expand="lg" className="mb-5">
   <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -69,14 +59,15 @@ const Navigation = () => {
   </Navbar.Collapse>
 
 </Navbar>
+</>
 
-      {/* <Navbar bg="primary" variant="light">
-        <Navbar.Brand href="#home" Text style={{color: "white" , fontSize: 50 , fontFamily: "Sacromento" }}>Millennial Health Inc.</Navbar.Brand>
+      // {/* <Navbar bg="primary" variant="light">
+      //   <Navbar.Brand href="#home" Text style={{color: "white" , fontSize: 50 , fontFamily: "Sacromento" }}>Millennial Health Inc.</Navbar.Brand>
        
           
      
-      </Navbar> */}
-    </>
+      // </Navbar> */}
+      
   )
 }
 export default Navigation;
