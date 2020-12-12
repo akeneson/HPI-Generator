@@ -348,7 +348,7 @@ const Home = (props) => {
                 <Tab.Pane eventKey="eigth">
                   <h3>Do any of the following things make your symptoms worse?</h3>
                     {Provocatives.map((Provocative) =>(
-                      <Button  color="success" className="Btn" onClick={(e)=>handleInput(e)} name="Provocatives">{Provocative}</Button>
+                      <Button  color="success" className="Btn" onClick={(e)=>{handleInput(e); e.target.style.background="red"}} name="Provocatives">{Provocative}</Button>
                     ))}
                 </Tab.Pane>
                 <Tab.Pane eventKey="ninth">
