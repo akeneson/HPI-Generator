@@ -184,6 +184,7 @@ const Home = (props) => {
     const [provocativeInput, setProvocativeInput] = useState([]);
     const [qunatityInput, setqunatityInput] = useState([]);
     const [qunatityDivInput, setqunatityDivInput] = useState(false);
+    const [tabRequest, setEnabled] = useState(true)
 
     
     function handleInput(e) {
@@ -255,13 +256,13 @@ const Home = (props) => {
     newUserInput = useContext(InputContext)
     userInputCon = inputs;
     newUserInput=userInputCon;
+
+    // if(symptomInput !== ""){
+    //   setEnabled(false)
+    // }
   
   return (
     <>
-    {/* <InputProvider value={inputs}> */}
-    {/* {console.log("SYMP", symptomInput)}
-    {console.log("INPUTS", inputs)}
-    {console.log("context works!", newUserInput)} */}
       <Container>
             <Tab.Container id="left-tabs-example" defaultActiveKey="first">
           <Row>
@@ -368,9 +369,11 @@ const Home = (props) => {
         </Tab.Container>
       </Container>
       <Row >
-        <div className={qunatityDivInput ? "" : "hidden"} style={{padding:"auto"}}>
-          <Button onClick={(e)=>handleSubmit(e)}>Preview</Button>
-        </div>
+          <Col md={{ span: 6, offset: 6 }}>
+            <div className={qunatityDivInput ? "" : "hidden"} style={{paddingTop:"20px"}} >
+              <Button variant="success" onClick={(e)=>handleSubmit(e)}>Next</Button>
+            </div>
+          </Col>
       </Row>
     </>
   );
