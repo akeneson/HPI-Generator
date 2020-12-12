@@ -61,6 +61,7 @@ const HPICard = (props) => {
    const radiation = location.values[4].Radiations
    const severity = location.values[3].PainLevel
 
+   let token = localStorage.getItem('auth-token');
    //redirects user to login page if not logged in
    // useEffect(() => {
    //    if (!userData.user) history.push("/login")
@@ -68,7 +69,7 @@ const HPICard = (props) => {
    // })
    useEffect(() => {
       const loginCheck = async () => {
-        let token = localStorage.getItem('auth-token');
+      //   let token = localStorage.getItem('auth-token');
         if (token === null) {
           localStorage.setItem('auth-token', "");
           token = ""
@@ -104,14 +105,25 @@ const HPICard = (props) => {
    Patient rates their pain as a ${location.values ? location.values[3].PainLevel : "Error"}/10. ${quantitiesText}.
    ${provocativesText}. ${pallativesText}. ${AssSymptsText}. `;
 
-
+   const [requestInfo, setRequestInfo] = useState("");
    
    const submit = async (e) => {
       e.preventDefault();
 
       try {
          const newRecord = { user, patientName, patientId, dob, symptom, assocSymptoms, palliative, provocative, radiation, severity, hpi }
-         await Axios.post("./api/patientrecords/", newRecord)
+         const postResponse = await Axios({
+            method: 'post',
+            url: './api/patientrecords/',
+            data: newRecord,
+            headers: {'x-auth-token': token}
+         });
+
+         if(postResponse.status === 200) {
+            setRequestInfo("Submissions successful");
+         }
+         console.log(postResponse);
+         // await Axios.post("./api/patientrecords/", newRecord)
       } catch (err) {
          err.response.data.msg && setError(err.response.data.msg)
       }
@@ -124,6 +136,7 @@ const HPICard = (props) => {
          {error && (
             <ErrorNotice message={error} clearError={() => setError(undefined)} />
          )}
+         {requestInfo && <div>{requestInfo}</div>}
          <Row>
             <Col md={{ span: 6, offset: 3 }}>
                <div className="card card-rounded m-4">

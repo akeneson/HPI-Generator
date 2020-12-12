@@ -51,7 +51,7 @@ const Home = (props) => {
     loginCheck();
   }, []);
 
-  console.log("Homepage: ", userData)
+  // console.log("Homepage: ", userData)
   //redirects user to login page if not logged in
   // useEffect( async ()=> {
   //   // e.preventDefault();
