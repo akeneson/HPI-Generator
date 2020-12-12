@@ -313,9 +313,9 @@ const Home = (props) => {
                 <Tab.Pane eventKey="third" >
                     {/* <div className={qualityDivInput ? "" : "hidden"}> */}
                     <div>
-                      <h3>What is the quality of the symptom(s) you are experiencing?</h3>
+                      <h3>Please select the words that best describe your symptoms.</h3>
                         {Qualities.map((Quality) =>(
-                          <Button color="success" className="Btn" onClick={(e)=>handleInput(e)} name="Qualities">{Quality}</Button>
+                          <Button color="success" className="Btn" onClick={(e)=>{handleInput(e); e.target.style.background="gray"}} name="Qualities">{Quality}</Button>
                         ))}
                     </div>
                 </Tab.Pane>
@@ -328,34 +328,34 @@ const Home = (props) => {
                     ))}
                 </Tab.Pane>
                 <Tab.Pane eventKey="fifth">
-                  <h3>Where are the symptoms radiating from?</h3>
+                  <h3>Where are the symptoms radiating to?</h3>
                     {Radiations.map((Radiation) =>(
-                      <Button color="success" className="Btn" onClick={(e)=>handleInput(e)} name="Radiations">{Radiation}</Button>
+                      <Button color="success" className="Btn" onClick={(e)=>{handleInput(e); e.target.style.background="gray"}} name="Radiations">{Radiation}</Button>
                     ))}
                 </Tab.Pane>
                 <Tab.Pane eventKey="sixth">
-                  <h3>Are you experiencing any associated symptoms?</h3>
+                  <h3>Please select other symptoms that you are experiencing</h3>
                     {AssSymps.map((AssSymp) =>(
-                      <Button  color="success" className="Btn" onClick={(e)=>handleInput(e)} name="AssSymps">{AssSymp}</Button>
+                      <Button  color="success" className="Btn" onClick={(e)=>{handleInput(e); e.target.style.background="gray"}} name="AssSymps">{AssSymp}</Button>
                     ))}
                 </Tab.Pane>
                 <Tab.Pane eventKey="seventh">
-                  <h3>Have you tried any of the following to ease your pain/symptoms?</h3>
+                  <h3>Which of the following have you tried ease your pain/symptoms?</h3>
                     {Pallatives.map((Pallative) =>(
-                      <Button  color="success" className="Btn" onClick={(e)=>handleInput(e)} name="Pallatives">{Pallative}</Button>
+                      <Button  color="success" className="Btn" onClick={(e)=>{handleInput(e); e.target.style.background="gray"}} name="Pallatives">{Pallative}</Button>
                     ))}
                 </Tab.Pane>
                 <Tab.Pane eventKey="eigth">
-                  <h3>Do any of the following things make your symptoms worse?</h3>
+                  <h3>Please let us know what makes your symptoms worse?</h3>
                     {Provocatives.map((Provocative) =>(
-                      <Button  color="success" className="Btn" onClick={(e)=>{handleInput(e); e.target.style.background="red"}} name="Provocatives">{Provocative}</Button>
+                      <Button  color="success" className="Btn" onClick={(e)=>{handleInput(e); e.target.style.background="gray"}} name="Provocatives">{Provocative}</Button>
                     ))}
                 </Tab.Pane>
                 <Tab.Pane eventKey="ninth">
                     <div >
                       <h3>How often do you experience symptoms?</h3>
                         {Quantities.map((Quantity) =>(
-                          <Button  color="success" className="Btn" onClick={(e)=>handleInput(e)} name="Quantities">{Quantity}</Button>
+                          <Button  color="success" className="Btn" onClick={(e)=>{handleInput(e); e.target.style.background="gray"}} name="Quantities">{Quantity}</Button>
                         ))}
                     </div>
                 </Tab.Pane>
