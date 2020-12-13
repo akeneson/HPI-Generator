@@ -22,6 +22,22 @@ const patientRecordSeed = [
     radiation: ["lower back", "legs"],
     severity: 7,
     symptomStart: new Date(Date.now()),
+    hpi: "Patient reports back pain after coding bootcamp",
+    status: 'closed'
+  },
+  {
+    patientName: "Amy K",
+    dob: "2020-11-18",
+    apptDate: new Date(Date.now()),
+    patientId: "001",
+    symptom: "Trauma",
+    assocSymptoms: ["back pain", "neck pain", "trouble walking"],
+    palliative: ["massage", "hot compress"],
+    provocative: ["arching", "bending"],
+    qualityType: ["stabbing", "numbness"],
+    radiation: ["lower back", "legs"],
+    severity: 7,
+    symptomStart: new Date(Date.now()),
     hpi: "Patient reports back pain after coding bootcamp"
   },
   {
