@@ -9,8 +9,12 @@ import './Navigation.css';
 
 
 const Navigation = () => {
-  const { userData, setUserData } = useContext(UserContext);
+  const { userData } = useContext(UserContext);
+  const { setUserData } = useContext(UserContext);
   const history = useHistory();
+  const user = [userData.user];
+  console.log('USER DATA:', user)
+
   const register = () => history.push('/register')
   const login = (e) => {
     e.preventDefault();
@@ -20,14 +24,16 @@ const Navigation = () => {
   const logout = (e) => {
     e.preventDefault();
 
-      setUserData({
-        token: undefined,
-        user: undefined
-      });
-      localStorage.setItem("auth-token", "");
-      history.push('/login')
-    };
-    // console.log('USER DATA:', userData)
+    setUserData({
+      token: undefined,
+      user: undefined
+    });
+    localStorage.setItem("auth-token", "");
+    history.push('/login')
+  };
+
+
+
 
   return (
     <div>
@@ -42,10 +48,14 @@ const Navigation = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mx-auto ">
 
-            <Nav.Link eventKey="1" href="/home"><h5>HOME</h5></Nav.Link>
+
             <Nav.Link eventKey="2" href="/about"><h5>ABOUT US</h5></Nav.Link>
             {userData.user ? (
-              <Nav.Link eventKey="3" onClick={logout} href="/"><h5>LOGOUT</h5></Nav.Link>
+              <>
+                <Nav.Link eventKey="1" href="/home"><h5>ADD APPOINTMENT</h5></Nav.Link>
+                <Nav.Link eventKey="6" href="/feed"><h5>HISTORY</h5></Nav.Link>
+                <Nav.Link eventKey="3" onClick={logout} href="/"><h5>LOGOUT</h5></Nav.Link>
+              </>
             ) : (
                 <>
                   <Nav.Link eventKey="4" onClick={login} href="/login"> <h5>LOGIN</h5></Nav.Link>

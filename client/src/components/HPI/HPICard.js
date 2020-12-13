@@ -60,7 +60,7 @@ const HPICard = (props) => {
    const provocative = location.values[7].Provocatives
    const radiation = location.values[4].Radiations
    const severity = location.values[3].PainLevel
-
+   
    let token = localStorage.getItem('auth-token');
    //redirects user to login page if not logged in
    // useEffect(() => {

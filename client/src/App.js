@@ -55,7 +55,7 @@ function App() {
       <UserContext.Provider value={{userData, setUserData}} >
         <Navigation />
         <Switch>
-          <Route exact path="/" component={Login} />
+          <Route exact path="/" component={AboutPage} />
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
           <Route path="/home" component={Home} />
